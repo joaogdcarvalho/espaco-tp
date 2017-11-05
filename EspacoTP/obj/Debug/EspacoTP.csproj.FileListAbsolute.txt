@@ -1,0 +1,44 @@
+C:\Users\João Gabriel\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.csprojResolveAssemblyReference.cache
+C:\Users\João Gabriel\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.FrmHorario.resources
+C:\Users\João Gabriel\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.FrmAlunosConsulta.resources
+C:\Users\João Gabriel\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.FrmAgenda.resources
+C:\Users\João Gabriel\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.FrmInstrutores.resources
+C:\Users\João Gabriel\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.FrmLogin.resources
+C:\Users\João Gabriel\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.FrmPainel.resources
+C:\Users\João Gabriel\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.FrmAlunos.resources
+C:\Users\João Gabriel\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.FrmUsuarios.resources
+C:\Users\João Gabriel\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.Properties.Resources.resources
+C:\Users\João Gabriel\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.csproj.GenerateResource.Cache
+C:\Users\João Gabriel\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.csproj.CoreCompileInputs.cache
+C:\Users\João Gabriel\Documents\EspacoTP\EspacoTP\bin\Debug\EspacoTP.exe.config
+C:\Users\João Gabriel\Documents\EspacoTP\EspacoTP\bin\Debug\EspacoTP.exe
+C:\Users\João Gabriel\Documents\EspacoTP\EspacoTP\bin\Debug\EspacoTP.pdb
+C:\Users\João Gabriel\Documents\EspacoTP\EspacoTP\bin\Debug\Correios.dll
+C:\Users\João Gabriel\Documents\EspacoTP\EspacoTP\bin\Debug\MySql.Data.dll
+C:\Users\João Gabriel\Documents\EspacoTP\EspacoTP\bin\Debug\Correios.pdb
+C:\Users\João Gabriel\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.exe
+C:\Users\João Gabriel\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.pdb
+C:\Users\Administrador\Documents\EspacoTP\EspacoTP\bin\Debug\EspacoTP.exe.config
+C:\Users\Administrador\Documents\EspacoTP\EspacoTP\bin\Debug\EspacoTP.exe
+C:\Users\Administrador\Documents\EspacoTP\EspacoTP\bin\Debug\EspacoTP.pdb
+C:\Users\Administrador\Documents\EspacoTP\EspacoTP\bin\Debug\Correios.dll
+C:\Users\Administrador\Documents\EspacoTP\EspacoTP\bin\Debug\MySql.Data.dll
+C:\Users\Administrador\Documents\EspacoTP\EspacoTP\bin\Debug\Correios.pdb
+C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.FrmAlunosConsulta.resources
+C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.FrmAgenda.resources
+C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.FrmInstrutores.resources
+C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.FrmLogin.resources
+C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.FrmPainel.resources
+C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.FrmAlunos.resources
+C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.FrmUsuarios.resources
+C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.Properties.Resources.resources
+C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.csproj.GenerateResource.Cache
+C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.csproj.CoreCompileInputs.cache
+C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.exe
+C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.pdb
+C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.FrmFrequencia.resources
+C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.FrmAgendamentos.resources
+C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.FrmPeriodos.resources
+C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.csprojResolveAssemblyReference.cache
+C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.FrmPagamentosCadastro.resources
+C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.FrmPagamentosConsulta.resources

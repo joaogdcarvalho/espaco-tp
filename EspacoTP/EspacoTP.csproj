@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D216C76C-AC52-4DA5-84C6-E90850E69CD3}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>EspacoTP</RootNamespace>
+    <AssemblyName>EspacoTP</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Correios, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Correios-Api.1.1.1\lib\portable-net45+win\Correios.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.6.9.9\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL\AgendamentosBLL.cs" />
+    <Compile Include="BLL\AlunosBLL.cs" />
+    <Compile Include="BLL\PeriodosBLL.cs" />
+    <Compile Include="BLL\InstrutoresBLL.cs" />
+    <Compile Include="BLL\UsuariosBLL.cs" />
+    <Compile Include="DAL\AgendamentosDAL.cs" />
+    <Compile Include="DAL\AlunosDAL.cs" />
+    <Compile Include="DAL\PeriodosDAL.cs" />
+    <Compile Include="DAL\InstrutoresDAL.cs" />
+    <Compile Include="DAL\UsuariosDAL.cs" />
+    <Compile Include="FrmAgendamentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAgendamentos.designer.cs">
+      <DependentUpon>FrmAgendamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFrequencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFrequencia.Designer.cs">
+      <DependentUpon>FrmFrequencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPagamentosCadastro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPagamentosCadastro.designer.cs">
+      <DependentUpon>FrmPagamentosCadastro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPagamentosConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPagamentosConsulta.designer.cs">
+      <DependentUpon>FrmPagamentosConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPeriodos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPeriodos.Designer.cs">
+      <DependentUpon>FrmPeriodos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAlunosConsulta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAlunosConsulta.Designer.cs">
+      <DependentUpon>FrmAlunosConsulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAgenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAgenda.Designer.cs">
+      <DependentUpon>FrmAgenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmInstrutores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmInstrutores.Designer.cs">
+      <DependentUpon>FrmInstrutores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPainel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPainel.Designer.cs">
+      <DependentUpon>FrmPainel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAlunos .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAlunos .Designer.cs">
+      <DependentUpon>FrmAlunos .cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUsuarios.Designer.cs">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MODEL\AgendamentosTO.cs" />
+    <Compile Include="MODEL\AlunosTO.cs" />
+    <Compile Include="MODEL\InstrutoresTO.cs" />
+    <Compile Include="MODEL\PeriodosTO.cs" />
+    <Compile Include="MODEL\UsuariosTO.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UTIL\ConexaoBD.cs" />
+    <Compile Include="UTIL\Enum.cs" />
+    <Compile Include="UTIL\Validacoes.cs" />
+    <EmbeddedResource Include="FrmAgendamentos.resx">
+      <DependentUpon>FrmAgendamentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFrequencia.resx">
+      <DependentUpon>FrmFrequencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPagamentosCadastro.resx">
+      <DependentUpon>FrmPagamentosCadastro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPagamentosConsulta.resx">
+      <DependentUpon>FrmPagamentosConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPeriodos.resx">
+      <DependentUpon>FrmPeriodos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAlunosConsulta.resx">
+      <DependentUpon>FrmAlunosConsulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAgenda.resx">
+      <DependentUpon>FrmAgenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmInstrutores.resx">
+      <DependentUpon>FrmInstrutores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPainel.resx">
+      <DependentUpon>FrmPainel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAlunos .resx">
+      <DependentUpon>FrmAlunos .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUsuarios.resx">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="UTIL\MYSQL\PROCS\uspAgendamentosAlterar.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspAgendamentosBuscar.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspAgendamentosIncluir.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspAlunosAlterar.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspAlunosBuscar.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspAlunosDetalhar.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspAlunosIncluir.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspContarAgendamentos.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspContarAlunos.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspContarAlunosTurma.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspContarInstrutores.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspContarPeriodos.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspContarUsuarios.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspDiaPopularCombo.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspHorarioPopularCombo.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspInstrutoresAlterar.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspInstrutoresBuscar.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspInstrutoresIncluir.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspInstrutorPopularCombo.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspPeriodosAlterar.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspPeriodosBuscar.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspPeriodosExcluir.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspPeriodosIncluir.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspSituacoesCreditoPopularCombo.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspUsuariosAlterar.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspUsuariosBuscar.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspUsuariosIncluir.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspValidarCronogramaDia.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspValidarLogin.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspValidarTurma.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspValidarUsuarioAdministrador.sql" />
+    <Content Include="UTIL\MYSQL\PROCS\uspValidarUsuarioExistente.sql" />
+    <Content Include="UTIL\MYSQL\SCRIPTS\bd.sql" />
+    <Content Include="UTIL\MYSQL\SCRIPTS\script_versao.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
