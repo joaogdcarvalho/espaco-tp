@@ -1,10 +1,10 @@
 USE `espaco_tp`;
-DROP PROCEDURE IF EXISTS `uspHorarioPopularCombo`;
+DROP PROCEDURE IF EXISTS `uspPopComboHorario`;
 
 USE `espaco_tp`;
 DELIMITER $$
 
-CREATE PROCEDURE `uspHorarioPopularCombo`(
+CREATE PROCEDURE `uspPopComboHorario`(
 )
 
 BEGIN

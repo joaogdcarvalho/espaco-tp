@@ -1,10 +1,10 @@
 USE `espaco_tp`;
-DROP PROCEDURE IF EXISTS `uspSituacoesCreditoPopularCombo`;
+DROP PROCEDURE IF EXISTS `uspPopComboSituacoesCredito`;
 
 USE `espaco_tp`;
 DELIMITER $$
 
-CREATE PROCEDURE `uspSituacoesCreditoPopularCombo`(
+CREATE PROCEDURE `uspPopComboSituacoesCredito`(
 )
 
 BEGIN

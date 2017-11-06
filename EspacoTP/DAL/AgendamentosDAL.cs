@@ -19,9 +19,11 @@ namespace EspacoTP.DAL
         private const string INSERT = "uspAgendamentosIncluir";
         private const string UPDATE = "uspAgendamentosAlterar";
                 
-        private const string POPULAR_COMBO_HORARIO = "uspHorarioPopularCombo";
-        private const string POPULAR_COMBO_INSTRUTOR = "uspInstrutorPopularCombo";
-        private const string POPULAR_COMBO_DIA = "uspDiaPopularCombo";
+        // criar uma classe 'PopComb' apenas para popular as combos de todas as janelas
+        private const string POPULAR_COMBO_HORARIO = "uspPopComboHorario";
+        private const string POPULAR_COMBO_INSTRUTOR = "uspPopComboInstrutor";
+        private const string POPULAR_COMBO_DIA = "uspPopComboDia";
+        private const string POPULAR_COMBO_TIPO_TELEFONE = "uspPopComboTipoTelefone";
 
         private const string CONTAR_AGENDAMENTOS = "uspContarAgendamentos";
         private const string CONTAR_ALUNOS_TURMA = "uspContarAlunosTurma";
@@ -125,6 +127,41 @@ namespace EspacoTP.DAL
                         catch (MySqlException ex)
                         {
                             pstrMensagem = string.Format("Erro: 'Método: AgendamentosDAL.PopularComboHorario'. \n\n{0}.", ex.Message);
+                            pbooRetorno = false;
+                        }
+                        finally
+                        {
+                            cmd.Connection.Close();
+                        }
+                    }
+                }
+            }
+            else
+            {
+                conn.Close();
+            }
+            return dtTable;
+        }
+
+        public static DataTable PopularComboTipoTelefone(out string pstrMensagem, out bool pbooRetorno)
+        {
+            DataTable dtTable = new DataTable();
+            MySqlConnection conn = ConexaoBD.CriarConexao(out pstrMensagem, out pbooRetorno);
+            if (pbooRetorno)
+            {
+                using (conn)
+                {
+                    using (MySqlCommand cmd = new MySqlCommand(POPULAR_COMBO_TIPO_TELEFONE, conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        try
+                        {
+                            MySqlDataAdapter dtAdapter = new MySqlDataAdapter(cmd);
+                            dtAdapter.Fill(dtTable);
+                        }
+                        catch (MySqlException ex)
+                        {
+                            pstrMensagem = string.Format("Erro: 'Método: AgendamentosDAL.PopularComboTipoTelefone'. \n\n{0}.", ex.Message);
                             pbooRetorno = false;
                         }
                         finally

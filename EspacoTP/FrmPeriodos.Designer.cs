@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.grpDetalhes = new System.Windows.Forms.GroupBox();
             this.txtCodigoPeriodo = new System.Windows.Forms.TextBox();
             this.lbCodigoPeriodo = new System.Windows.Forms.Label();
@@ -75,23 +76,21 @@
             // txtCodigoPeriodo
             // 
             this.txtCodigoPeriodo.Enabled = false;
-            this.txtCodigoPeriodo.Location = new System.Drawing.Point(93, 64);
+            this.txtCodigoPeriodo.Location = new System.Drawing.Point(372, 62);
             this.txtCodigoPeriodo.MaxLength = 11;
             this.txtCodigoPeriodo.Name = "txtCodigoPeriodo";
             this.txtCodigoPeriodo.Size = new System.Drawing.Size(137, 20);
             this.txtCodigoPeriodo.TabIndex = 16;
-            this.txtCodigoPeriodo.Visible = false;
             // 
             // lbCodigoPeriodo
             // 
             this.lbCodigoPeriodo.AutoSize = true;
             this.lbCodigoPeriodo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbCodigoPeriodo.Location = new System.Drawing.Point(11, 76);
+            this.lbCodigoPeriodo.Location = new System.Drawing.Point(285, 68);
             this.lbCodigoPeriodo.Name = "lbCodigoPeriodo";
             this.lbCodigoPeriodo.Size = new System.Drawing.Size(81, 13);
             this.lbCodigoPeriodo.TabIndex = 15;
             this.lbCodigoPeriodo.Text = "Código Período";
-            this.lbCodigoPeriodo.Visible = false;
             // 
             // lbHorario
             // 
@@ -279,7 +278,11 @@
             // colHora
             // 
             this.colHora.DataPropertyName = "hora";
+            dataGridViewCellStyle1.Format = "t";
+            dataGridViewCellStyle1.NullValue = null;
+            this.colHora.DefaultCellStyle = dataGridViewCellStyle1;
             this.colHora.HeaderText = "HORA";
+            this.colHora.MaxInputLength = 5;
             this.colHora.MinimumWidth = 150;
             this.colHora.Name = "colHora";
             this.colHora.ReadOnly = true;

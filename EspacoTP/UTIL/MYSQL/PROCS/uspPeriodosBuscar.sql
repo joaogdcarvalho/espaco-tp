@@ -11,6 +11,7 @@ IN pNumIdAluno INT(11)
 BEGIN
         
 	SELECT
+		p.id_periodo				as 'id_periodo',
         p.id_dia_agendamento		as 'id_dia_agendamento',
         d.dia						as 'dia',
         p.id_horario_agendamento 	as 'id_horario_agendamento',

@@ -106,12 +106,7 @@ namespace EspacoTP
                 int numCodigoAluno = Convert.ToInt32(txtCodigoAluno.Text);
                 DateTime dtDataAgendamento = dtpData.Value;
                 int numIdAgendamento = (numIdHorarioAgendamento + 1);
-
-                // aluno agendado no dia
-                if (!AgendamentosBLL.ValidarAlunoInclusoCronogramaDia(out strMensagem, out booRetorno, numCodigoAluno, dtDataAgendamento, numIdAgendamento))
-                {
-                    strMensagemValidacao = strMensagemValidacao + "\n - ALUNO possui agendamento ativo na data de hoje, às [xx:xx].";
-                }
+                string strHorarioAgendamento = cboHorario.GetItemText(cboHorario.Items[numIdAgendamento - 1]).ToString();
 
                 if (booInclusao)
                 {
@@ -121,6 +116,12 @@ namespace EspacoTP
                         strMensagemValidacao = strMensagemValidacao + "\n - ALUNO já incluso na turma.";
                     }
                 }
+
+                // aluno agendado no dia
+                if (!AgendamentosBLL.ValidarAlunoInclusoCronogramaDia(out strMensagem, out booRetorno, numCodigoAluno, dtDataAgendamento, numIdAgendamento))
+                {
+                    strMensagemValidacao = strMensagemValidacao + "\n - ALUNO possui agendamento ativo na data de hoje. "; // + strHorarioAgendamento + ".";
+                }                
             }
 
             if ((!string.IsNullOrEmpty(strMensagemValidacao) || (strMensagemValidacao != "")))
@@ -232,7 +233,6 @@ namespace EspacoTP
 
             LimparCampos();
             txtCodigoAgendamento.Text = Convert.ToString(AgendamentosBLL.ContarAgendamentos(out strMensagem, out booRetorno));
-            //txtCodigoAgendamento.Text = Convert.ToString(grdTurma.RowCount + 1);
         }
 
         private void btnAlterar_Click(object sender, EventArgs e)

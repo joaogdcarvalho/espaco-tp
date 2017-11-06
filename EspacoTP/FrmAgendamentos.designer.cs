@@ -43,19 +43,19 @@
             this.dtpData = new System.Windows.Forms.DateTimePicker();
             this.grpTurma = new System.Windows.Forms.GroupBox();
             this.grdTurma = new System.Windows.Forms.DataGridView();
-            this.colIdAluno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colIdAgendamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNomeAluno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSobrenomeAluno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colIdInstrutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNomeInstrutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colAulaAgendada = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnImprimirCronograma = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnIncluir = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnDesfazer = new System.Windows.Forms.Button();
+            this.colIdAgendamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colIdAluno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNomeAluno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSobrenomeAluno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colIdInstrutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNomeInstrutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colAulaAgendada = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.grpDetalhes.SuspendLayout();
             this.grpTurma.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdTurma)).BeginInit();
@@ -218,8 +218,8 @@
             this.grdTurma.AllowUserToResizeRows = false;
             this.grdTurma.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdTurma.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colIdAluno,
             this.colIdAgendamento,
+            this.colIdAluno,
             this.colNomeAluno,
             this.colSobrenomeAluno,
             this.colIdInstrutor,
@@ -236,69 +236,6 @@
             this.grdTurma.TabStop = false;
             this.grdTurma.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTurma_CellClick);
             this.grdTurma.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTurma_CellEnter);
-            // 
-            // colIdAluno
-            // 
-            this.colIdAluno.DataPropertyName = "id_aluno";
-            this.colIdAluno.HeaderText = "ID ALUNO";
-            this.colIdAluno.MinimumWidth = 90;
-            this.colIdAluno.Name = "colIdAluno";
-            this.colIdAluno.ReadOnly = true;
-            this.colIdAluno.Width = 90;
-            // 
-            // colIdAgendamento
-            // 
-            this.colIdAgendamento.DataPropertyName = "id_agendamento";
-            this.colIdAgendamento.HeaderText = "ID AGEND";
-            this.colIdAgendamento.MinimumWidth = 90;
-            this.colIdAgendamento.Name = "colIdAgendamento";
-            this.colIdAgendamento.ReadOnly = true;
-            this.colIdAgendamento.Width = 90;
-            // 
-            // colNomeAluno
-            // 
-            this.colNomeAluno.DataPropertyName = "nome_aluno";
-            this.colNomeAluno.HeaderText = "NOME";
-            this.colNomeAluno.MinimumWidth = 130;
-            this.colNomeAluno.Name = "colNomeAluno";
-            this.colNomeAluno.ReadOnly = true;
-            this.colNomeAluno.Width = 130;
-            // 
-            // colSobrenomeAluno
-            // 
-            this.colSobrenomeAluno.DataPropertyName = "sobrenome_aluno";
-            this.colSobrenomeAluno.HeaderText = "SOBRENOME";
-            this.colSobrenomeAluno.MinimumWidth = 130;
-            this.colSobrenomeAluno.Name = "colSobrenomeAluno";
-            this.colSobrenomeAluno.ReadOnly = true;
-            this.colSobrenomeAluno.Width = 130;
-            // 
-            // colIdInstrutor
-            // 
-            this.colIdInstrutor.DataPropertyName = "id_instrutor";
-            this.colIdInstrutor.HeaderText = "ID INS";
-            this.colIdInstrutor.Name = "colIdInstrutor";
-            this.colIdInstrutor.ReadOnly = true;
-            this.colIdInstrutor.Visible = false;
-            // 
-            // colNomeInstrutor
-            // 
-            this.colNomeInstrutor.DataPropertyName = "nome_instrutor";
-            this.colNomeInstrutor.HeaderText = "NOME INS";
-            this.colNomeInstrutor.Name = "colNomeInstrutor";
-            this.colNomeInstrutor.ReadOnly = true;
-            this.colNomeInstrutor.Visible = false;
-            // 
-            // colAulaAgendada
-            // 
-            this.colAulaAgendada.DataPropertyName = "aula_agendada";
-            this.colAulaAgendada.HeaderText = "ATIVO";
-            this.colAulaAgendada.MinimumWidth = 70;
-            this.colAulaAgendada.Name = "colAulaAgendada";
-            this.colAulaAgendada.ReadOnly = true;
-            this.colAulaAgendada.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colAulaAgendada.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colAulaAgendada.Width = 70;
             // 
             // panel1
             // 
@@ -367,6 +304,69 @@
             this.btnDesfazer.UseVisualStyleBackColor = true;
             this.btnDesfazer.Click += new System.EventHandler(this.btnDesfazer_Click);
             // 
+            // colIdAgendamento
+            // 
+            this.colIdAgendamento.DataPropertyName = "id_agendamento";
+            this.colIdAgendamento.HeaderText = "ID AGEND";
+            this.colIdAgendamento.MinimumWidth = 90;
+            this.colIdAgendamento.Name = "colIdAgendamento";
+            this.colIdAgendamento.ReadOnly = true;
+            this.colIdAgendamento.Width = 90;
+            // 
+            // colIdAluno
+            // 
+            this.colIdAluno.DataPropertyName = "id_aluno";
+            this.colIdAluno.HeaderText = "ID ALUNO";
+            this.colIdAluno.MinimumWidth = 90;
+            this.colIdAluno.Name = "colIdAluno";
+            this.colIdAluno.ReadOnly = true;
+            this.colIdAluno.Width = 90;
+            // 
+            // colNomeAluno
+            // 
+            this.colNomeAluno.DataPropertyName = "nome_aluno";
+            this.colNomeAluno.HeaderText = "NOME";
+            this.colNomeAluno.MinimumWidth = 130;
+            this.colNomeAluno.Name = "colNomeAluno";
+            this.colNomeAluno.ReadOnly = true;
+            this.colNomeAluno.Width = 130;
+            // 
+            // colSobrenomeAluno
+            // 
+            this.colSobrenomeAluno.DataPropertyName = "sobrenome_aluno";
+            this.colSobrenomeAluno.HeaderText = "SOBRENOME";
+            this.colSobrenomeAluno.MinimumWidth = 130;
+            this.colSobrenomeAluno.Name = "colSobrenomeAluno";
+            this.colSobrenomeAluno.ReadOnly = true;
+            this.colSobrenomeAluno.Width = 130;
+            // 
+            // colIdInstrutor
+            // 
+            this.colIdInstrutor.DataPropertyName = "id_instrutor";
+            this.colIdInstrutor.HeaderText = "ID INS";
+            this.colIdInstrutor.Name = "colIdInstrutor";
+            this.colIdInstrutor.ReadOnly = true;
+            this.colIdInstrutor.Visible = false;
+            // 
+            // colNomeInstrutor
+            // 
+            this.colNomeInstrutor.DataPropertyName = "nome_instrutor";
+            this.colNomeInstrutor.HeaderText = "NOME INS";
+            this.colNomeInstrutor.Name = "colNomeInstrutor";
+            this.colNomeInstrutor.ReadOnly = true;
+            this.colNomeInstrutor.Visible = false;
+            // 
+            // colAulaAgendada
+            // 
+            this.colAulaAgendada.DataPropertyName = "aula_agendada";
+            this.colAulaAgendada.HeaderText = "ATIVO";
+            this.colAulaAgendada.MinimumWidth = 70;
+            this.colAulaAgendada.Name = "colAulaAgendada";
+            this.colAulaAgendada.ReadOnly = true;
+            this.colAulaAgendada.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colAulaAgendada.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colAulaAgendada.Width = 70;
+            // 
             // FrmAgendamentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -410,13 +410,13 @@
         private System.Windows.Forms.Button btnBuscarAlunos;
         private System.Windows.Forms.TextBox txtCodigoAgendamento;
         private System.Windows.Forms.Label lbCodigoAgendamento;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colIdAluno;
+        private System.Windows.Forms.Button btnImprimirCronograma;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIdAgendamento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colIdAluno;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNomeAluno;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSobrenomeAluno;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIdInstrutor;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNomeInstrutor;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colAulaAgendada;
-        private System.Windows.Forms.Button btnImprimirCronograma;
     }
 }

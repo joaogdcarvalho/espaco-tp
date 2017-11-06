@@ -28,6 +28,12 @@ namespace EspacoTP
 
         #region métodos
 
+        private void PopularComboTipoTelefone()
+        {
+            cboTipoTelefone.DataSource = AgendamentosBLL.PopularComboTipoTelefone(out strMensagem, out booRetorno);
+            cboTipoTelefone.DisplayMember = "descricao";
+        }
+
         public void HabilitarObjetos()
         {
             if (booModoEscrita)
@@ -43,6 +49,8 @@ namespace EspacoTP
                 btnPeriodos.Enabled = false;
                 btnAlterar.Enabled = false;
                 btnFrequencia.Enabled = false;
+
+                cboTipoTelefone.Enabled = true;
 
                 txtCEP.Enabled = true;
                 txtLogradouro.Enabled = true;
@@ -64,6 +72,8 @@ namespace EspacoTP
                 txtEmail.Enabled = false;
                 dtpDataInicioContrato.Enabled = false;
                 dtpDataTerminoContrato.Enabled = false;
+
+                cboTipoTelefone.Enabled = false;
 
                 // permitir manipulação de dados de alunos, apenas caso haja alguma busca realizada
                 if (txtCodigo.Text.Trim() == "")
@@ -98,6 +108,7 @@ namespace EspacoTP
             txtNome.Text = "";
             txtSobrenome.Text = "";
             txtCPF.Text = "";
+            cboTipoTelefone.SelectedIndex = 0;
             txtNumeroTelefone.Text = "";
 
             txtEmail.Text = "";
@@ -124,6 +135,7 @@ namespace EspacoTP
                 txtNome.Text = alu.Nome;
                 txtSobrenome.Text = alu.Sobrenome;
                 txtCPF.Text = alu.Cpf;
+                cboTipoTelefone.SelectedIndex = Convert.ToInt32(alu.IdTipoTelefone) - 1;
                 txtNumeroTelefone.Text = alu.NumeroTelefone;
                 txtEmail.Text = alu.Email;
 
@@ -196,7 +208,10 @@ namespace EspacoTP
             alu.Nome = txtNome.Text.Trim();
             alu.Sobrenome = txtSobrenome.Text.Trim();
             alu.Cpf = txtCPF.Text.Trim();
-            alu.IdTipoTelefone = 3;
+            if (!string.IsNullOrEmpty(cboTipoTelefone.Text.Trim()))
+            {
+                alu.IdTipoTelefone = (Convert.ToInt32(cboTipoTelefone.SelectedIndex) + 1).ToString();
+            }
 
             alu.NumeroTelefone = txtNumeroTelefone.Text.Trim();
             alu.Email = txtEmail.Text.Trim();
@@ -257,6 +272,8 @@ namespace EspacoTP
         {
             dtpDataInicioContrato.Value = DateTime.Now;
             dtpDataTerminoContrato.Value = DateTime.Now;
+
+            PopularComboTipoTelefone();
 
             booModoEscrita = false;
             HabilitarObjetos();

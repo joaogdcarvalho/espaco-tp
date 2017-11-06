@@ -7,7 +7,8 @@ DELIMITER $$
 
 CREATE PROCEDURE `uspValidarCronogramaDia`(
 IN pNumIdAluno INT(11),
-IN pNumDataAgendamento DATE
+IN pNumDataAgendamento DATE,
+IN pNumIdHorarioAgendamento INT(1)
 )
 
 BEGIN
@@ -21,10 +22,10 @@ BEGIN
         varNumCount
 	FROM 
 		agendamentos a
-	WHERE
-		a.id_aluno = pNumIdAluno
-	AND	a.data_agendamento = pNumDataAgendamento
-    AND	IFNULL(a.ativo,0) = 1;
+	WHERE	IFNULL(a.ativo,0) = 1
+	AND		a.id_aluno = pNumIdAluno
+	AND		a.data_agendamento = pNumDataAgendamento
+    AND		a.id_horario_agendamento != pNumIdHorarioAgendamento;
 
 	IF (IFNULL( varNumCount, 0 ) > 0 )
 	THEN SET varBooAlunoInclusoCronogramaDia = 1;

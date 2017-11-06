@@ -14,6 +14,7 @@ BEGIN
         a.nome					as 'nome',
         a.sobrenome				as 'sobrenome',
         a.cpf					as 'cpf',
+        a.id_tipo_telefone		as 'id_tipo_telefone',
 		a.numero_telefone		as 'numero_telefone',
         a.email					as 'email',
         a.data_inicio_contrato 	as 'data_inicio_contrato',

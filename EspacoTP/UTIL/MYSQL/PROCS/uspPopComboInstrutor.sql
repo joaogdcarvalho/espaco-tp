@@ -1,10 +1,10 @@
 USE `espaco_tp`;
-DROP PROCEDURE IF EXISTS `uspInstrutorPopularCombo`;
+DROP PROCEDURE IF EXISTS `uspPopComboInstrutor`;
 
 USE `espaco_tp`;
 DELIMITER $$
 
-CREATE PROCEDURE `uspInstrutorPopularCombo`(
+CREATE PROCEDURE `uspPopComboInstrutor`(
 )
 
 BEGIN

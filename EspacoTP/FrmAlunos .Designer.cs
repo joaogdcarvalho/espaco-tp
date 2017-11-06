@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.grpAlunosExp = new System.Windows.Forms.GroupBox();
+            this.grpTelefonePrincipal = new System.Windows.Forms.GroupBox();
+            this.lbTipoTelefone = new System.Windows.Forms.Label();
+            this.cboTipoTelefone = new System.Windows.Forms.ComboBox();
+            this.lbNumeroTelefone = new System.Windows.Forms.Label();
+            this.txtNumeroTelefone = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.lbEmail = new System.Windows.Forms.Label();
             this.lbCPF = new System.Windows.Forms.Label();
@@ -68,16 +73,11 @@
             this.lbDataTerminoContrato = new System.Windows.Forms.Label();
             this.dtpDataInicioContrato = new System.Windows.Forms.DateTimePicker();
             this.lbDataInicioContrato = new System.Windows.Forms.Label();
-            this.grpTelefonePrincipal = new System.Windows.Forms.GroupBox();
-            this.lbTipoTelefone = new System.Windows.Forms.Label();
-            this.cboTipoTelefone = new System.Windows.Forms.ComboBox();
-            this.lbNumeroTelefone = new System.Windows.Forms.Label();
-            this.txtNumeroTelefone = new System.Windows.Forms.TextBox();
             this.grpAlunosExp.SuspendLayout();
+            this.grpTelefonePrincipal.SuspendLayout();
             this.pnlBotoes.SuspendLayout();
             this.grpAlunosReg.SuspendLayout();
             this.grpPeriodoContrato.SuspendLayout();
-            this.grpTelefonePrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
             // grpAlunosExp
@@ -101,6 +101,56 @@
             this.grpAlunosExp.TabIndex = 0;
             this.grpAlunosExp.TabStop = false;
             this.grpAlunosExp.Text = "Pré-Cadastro de Alunos";
+            // 
+            // grpTelefonePrincipal
+            // 
+            this.grpTelefonePrincipal.Controls.Add(this.lbTipoTelefone);
+            this.grpTelefonePrincipal.Controls.Add(this.cboTipoTelefone);
+            this.grpTelefonePrincipal.Controls.Add(this.lbNumeroTelefone);
+            this.grpTelefonePrincipal.Controls.Add(this.txtNumeroTelefone);
+            this.grpTelefonePrincipal.Location = new System.Drawing.Point(232, 73);
+            this.grpTelefonePrincipal.Name = "grpTelefonePrincipal";
+            this.grpTelefonePrincipal.Size = new System.Drawing.Size(300, 66);
+            this.grpTelefonePrincipal.TabIndex = 20;
+            this.grpTelefonePrincipal.TabStop = false;
+            this.grpTelefonePrincipal.Text = "Telefone Principal";
+            // 
+            // lbTipoTelefone
+            // 
+            this.lbTipoTelefone.AutoSize = true;
+            this.lbTipoTelefone.Location = new System.Drawing.Point(18, 16);
+            this.lbTipoTelefone.Name = "lbTipoTelefone";
+            this.lbTipoTelefone.Size = new System.Drawing.Size(28, 13);
+            this.lbTipoTelefone.TabIndex = 27;
+            this.lbTipoTelefone.Text = "Tipo";
+            // 
+            // cboTipoTelefone
+            // 
+            this.cboTipoTelefone.FormattingEnabled = true;
+            this.cboTipoTelefone.Location = new System.Drawing.Point(18, 30);
+            this.cboTipoTelefone.MaxLength = 10;
+            this.cboTipoTelefone.Name = "cboTipoTelefone";
+            this.cboTipoTelefone.Size = new System.Drawing.Size(87, 21);
+            this.cboTipoTelefone.TabIndex = 28;
+            // 
+            // lbNumeroTelefone
+            // 
+            this.lbNumeroTelefone.AutoSize = true;
+            this.lbNumeroTelefone.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.lbNumeroTelefone.Location = new System.Drawing.Point(120, 16);
+            this.lbNumeroTelefone.Name = "lbNumeroTelefone";
+            this.lbNumeroTelefone.Size = new System.Drawing.Size(49, 13);
+            this.lbNumeroTelefone.TabIndex = 25;
+            this.lbNumeroTelefone.Text = "Telefone";
+            // 
+            // txtNumeroTelefone
+            // 
+            this.txtNumeroTelefone.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNumeroTelefone.Location = new System.Drawing.Point(120, 31);
+            this.txtNumeroTelefone.MaxLength = 15;
+            this.txtNumeroTelefone.Name = "txtNumeroTelefone";
+            this.txtNumeroTelefone.Size = new System.Drawing.Size(166, 20);
+            this.txtNumeroTelefone.TabIndex = 26;
             // 
             // txtEmail
             // 
@@ -333,12 +383,14 @@
             // 
             // cboEstado
             // 
+            this.cboEstado.Enabled = false;
             this.cboEstado.FormattingEnabled = true;
             this.cboEstado.Location = new System.Drawing.Point(481, 82);
             this.cboEstado.MaxLength = 8;
             this.cboEstado.Name = "cboEstado";
             this.cboEstado.Size = new System.Drawing.Size(51, 21);
             this.cboEstado.TabIndex = 22;
+            this.cboEstado.Text = "SP";
             // 
             // btnAlunosBusca
             // 
@@ -505,56 +557,6 @@
             this.lbDataInicioContrato.TabIndex = 0;
             this.lbDataInicioContrato.Text = "De";
             // 
-            // grpTelefonePrincipal
-            // 
-            this.grpTelefonePrincipal.Controls.Add(this.lbTipoTelefone);
-            this.grpTelefonePrincipal.Controls.Add(this.cboTipoTelefone);
-            this.grpTelefonePrincipal.Controls.Add(this.lbNumeroTelefone);
-            this.grpTelefonePrincipal.Controls.Add(this.txtNumeroTelefone);
-            this.grpTelefonePrincipal.Location = new System.Drawing.Point(232, 73);
-            this.grpTelefonePrincipal.Name = "grpTelefonePrincipal";
-            this.grpTelefonePrincipal.Size = new System.Drawing.Size(300, 66);
-            this.grpTelefonePrincipal.TabIndex = 20;
-            this.grpTelefonePrincipal.TabStop = false;
-            this.grpTelefonePrincipal.Text = "Telefone Principal";
-            // 
-            // lbTipoTelefone
-            // 
-            this.lbTipoTelefone.AutoSize = true;
-            this.lbTipoTelefone.Location = new System.Drawing.Point(18, 16);
-            this.lbTipoTelefone.Name = "lbTipoTelefone";
-            this.lbTipoTelefone.Size = new System.Drawing.Size(28, 13);
-            this.lbTipoTelefone.TabIndex = 27;
-            this.lbTipoTelefone.Text = "Tipo";
-            // 
-            // cboTipoTelefone
-            // 
-            this.cboTipoTelefone.FormattingEnabled = true;
-            this.cboTipoTelefone.Location = new System.Drawing.Point(18, 30);
-            this.cboTipoTelefone.MaxLength = 8;
-            this.cboTipoTelefone.Name = "cboTipoTelefone";
-            this.cboTipoTelefone.Size = new System.Drawing.Size(100, 21);
-            this.cboTipoTelefone.TabIndex = 28;
-            // 
-            // lbNumeroTelefone
-            // 
-            this.lbNumeroTelefone.AutoSize = true;
-            this.lbNumeroTelefone.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbNumeroTelefone.Location = new System.Drawing.Point(127, 16);
-            this.lbNumeroTelefone.Name = "lbNumeroTelefone";
-            this.lbNumeroTelefone.Size = new System.Drawing.Size(49, 13);
-            this.lbNumeroTelefone.TabIndex = 25;
-            this.lbNumeroTelefone.Text = "Telefone";
-            // 
-            // txtNumeroTelefone
-            // 
-            this.txtNumeroTelefone.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtNumeroTelefone.Location = new System.Drawing.Point(127, 31);
-            this.txtNumeroTelefone.MaxLength = 15;
-            this.txtNumeroTelefone.Name = "txtNumeroTelefone";
-            this.txtNumeroTelefone.Size = new System.Drawing.Size(166, 20);
-            this.txtNumeroTelefone.TabIndex = 26;
-            // 
             // FrmAlunos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -571,13 +573,13 @@
             this.Load += new System.EventHandler(this.FrmAlunos_Load);
             this.grpAlunosExp.ResumeLayout(false);
             this.grpAlunosExp.PerformLayout();
+            this.grpTelefonePrincipal.ResumeLayout(false);
+            this.grpTelefonePrincipal.PerformLayout();
             this.pnlBotoes.ResumeLayout(false);
             this.grpAlunosReg.ResumeLayout(false);
             this.grpAlunosReg.PerformLayout();
             this.grpPeriodoContrato.ResumeLayout(false);
             this.grpPeriodoContrato.PerformLayout();
-            this.grpTelefonePrincipal.ResumeLayout(false);
-            this.grpTelefonePrincipal.PerformLayout();
             this.ResumeLayout(false);
 
         }

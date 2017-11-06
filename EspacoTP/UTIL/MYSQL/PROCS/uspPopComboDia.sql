@@ -1,10 +1,10 @@
 USE `espaco_tp`;
-DROP PROCEDURE IF EXISTS `uspDiaPopularCombo`;
+DROP PROCEDURE IF EXISTS `uspPopComboDia`;
 
 USE `espaco_tp`;
 DELIMITER $$
 
-CREATE PROCEDURE `uspDiaPopularCombo`(
+CREATE PROCEDURE `uspPopComboDia`(
 )
 
 BEGIN

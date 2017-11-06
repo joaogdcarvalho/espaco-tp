@@ -13,18 +13,12 @@ namespace EspacoTP.DAL
     class AlunosDAL
     {
         #region Query
-
-        //private const string INSERT = "uspUsuariosIncluir";
-        //private const string UPDATE = "uspUsuariosAlterar";
-        //private const string DELETE = "uspUsuariosExcluir";
-        //private const string SELECT = "uspUsuariosSelecionar";
-
+        
         private const string SELECT = "uspAlunosBuscar";
-        private const string DETALHAR_ALUNO = "uspAlunosDetalhar";
-
         private const string INSERT = "uspAlunosIncluir";
         private const string UPDATE = "uspAlunosAlterar";
 
+        private const string DETALHAR_ALUNO = "uspAlunosDetalhar";
         private const string CONTAR_ALUNOS = "uspContarAlunos";
 
         #endregion
@@ -56,6 +50,7 @@ namespace EspacoTP.DAL
                                         al.Nome = rd["nome"].ToString().Trim();
                                         al.Sobrenome = rd["sobrenome"].ToString().Trim();
                                         al.Cpf = rd["cpf"].ToString().Trim();
+                                        al.IdTipoTelefone = rd["id_tipo_telefone"].ToString().Trim();
                                         al.NumeroTelefone = rd["numero_telefone"].ToString().Trim();
                                         al.Email = rd["email"].ToString().Trim();
                                         al.DataInicioContrato = Convert.ToDateTime(rd["data_inicio_contrato"]);

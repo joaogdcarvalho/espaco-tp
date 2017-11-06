@@ -55,6 +55,13 @@ namespace EspacoTP.BLL
             return dtTabela;
         }
 
+        public static DataTable PopularComboTipoTelefone(out string pstrMensagem, out bool pbooRetorno)
+        {
+            DataTable dtTabela = AgendamentosDAL.PopularComboTipoTelefone(out pstrMensagem, out pbooRetorno);
+
+            return dtTabela;
+        }
+
         public static bool ValidarTurma(out string pstrMensagem, out bool pbooRetorno, int pnumIdAluno, DateTime pdtDataAgendamento, int pnumIdHorarioAgendamento)
         {
             bool booAlunoIncluso = AgendamentosDAL.ValidarTurma(out pstrMensagem, out pbooRetorno, pnumIdAluno, pdtDataAgendamento, pnumIdHorarioAgendamento);
