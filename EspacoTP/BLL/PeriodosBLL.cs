@@ -31,7 +31,7 @@ namespace EspacoTP.BLL
             }
             else
             {
-                intQuantidadeReg = PeriodosDAL.Excluir(out pstrMensagem, out pbooRetorno, pPeriodo);
+                intQuantidadeReg = PeriodosDAL.Alterar(out pstrMensagem, out pbooRetorno, pPeriodo);
             }
 
             if (intQuantidadeReg > 0)
@@ -48,5 +48,20 @@ namespace EspacoTP.BLL
 
             return intResult;
         }
+
+        public static bool ValidarPeriodoRepetido(out string pstrMensagem, out bool pbooRetorno, int pnumIdAluno, int pnumIdDataAgendamento, int pnumIdHorarioAgendamento)
+        {
+            bool booPeriodoIncluso = PeriodosDAL.ValidarPeriodoRepetido(out pstrMensagem, out pbooRetorno, pnumIdAluno, pnumIdDataAgendamento, pnumIdHorarioAgendamento);
+            
+            return !booPeriodoIncluso;
+        }
+
+        public static bool ValidarDiaRepetido(out string pstrMensagem, out bool pbooRetorno, int pnumIdAluno, int pnumIdDataAgendamento, int pnumIdHorarioAgendamento)
+        {
+            bool booPeriodoIncluso = PeriodosDAL.ValidarDiaRepetido(out pstrMensagem, out pbooRetorno, pnumIdAluno, pnumIdDataAgendamento, pnumIdHorarioAgendamento);
+            
+            return !booPeriodoIncluso;
+        }
+
     }
 }

@@ -366,6 +366,8 @@
             // 
             this.dtpDataPagamento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDataPagamento.Location = new System.Drawing.Point(384, 35);
+            this.dtpDataPagamento.MaxDate = new System.DateTime(2120, 12, 31, 0, 0, 0, 0);
+            this.dtpDataPagamento.MinDate = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
             this.dtpDataPagamento.Name = "dtpDataPagamento";
             this.dtpDataPagamento.Size = new System.Drawing.Size(106, 20);
             this.dtpDataPagamento.TabIndex = 7;
@@ -383,6 +385,8 @@
             // 
             this.dtpDataCancelamento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDataCancelamento.Location = new System.Drawing.Point(262, 35);
+            this.dtpDataCancelamento.MaxDate = new System.DateTime(2120, 12, 31, 0, 0, 0, 0);
+            this.dtpDataCancelamento.MinDate = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
             this.dtpDataCancelamento.Name = "dtpDataCancelamento";
             this.dtpDataCancelamento.Size = new System.Drawing.Size(106, 20);
             this.dtpDataCancelamento.TabIndex = 5;
@@ -400,6 +404,8 @@
             // 
             this.dtpDataVencimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDataVencimento.Location = new System.Drawing.Point(141, 35);
+            this.dtpDataVencimento.MaxDate = new System.DateTime(2120, 12, 31, 0, 0, 0, 0);
+            this.dtpDataVencimento.MinDate = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
             this.dtpDataVencimento.Name = "dtpDataVencimento";
             this.dtpDataVencimento.Size = new System.Drawing.Size(106, 20);
             this.dtpDataVencimento.TabIndex = 3;
@@ -418,6 +424,8 @@
             this.dtpDataGeracao.Enabled = false;
             this.dtpDataGeracao.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDataGeracao.Location = new System.Drawing.Point(19, 35);
+            this.dtpDataGeracao.MaxDate = new System.DateTime(2120, 12, 31, 0, 0, 0, 0);
+            this.dtpDataGeracao.MinDate = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
             this.dtpDataGeracao.Name = "dtpDataGeracao";
             this.dtpDataGeracao.Size = new System.Drawing.Size(106, 20);
             this.dtpDataGeracao.TabIndex = 1;

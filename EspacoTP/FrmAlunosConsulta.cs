@@ -33,8 +33,8 @@ namespace EspacoTP
             txtNomeAluno.Text = "";
             txtSobrenomeAluno.Text = "";
             txtCPF.Text = "";
-            dtpDataInicioContrato.Value = new DateTime(DateTime.Now.Year - 5, DateTime.Now.Month, DateTime.Now.Day);
-            dtpDataTerminoContrato.Value = new DateTime(DateTime.Now.Year + 5, DateTime.Now.Month, DateTime.Now.Day);
+            dtpDataInicioContrato.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+            dtpDataTerminoContrato.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
         }
 
         public void MontarGrid()

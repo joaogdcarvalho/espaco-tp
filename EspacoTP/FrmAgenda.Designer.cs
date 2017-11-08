@@ -32,6 +32,7 @@
             this.dtpData = new System.Windows.Forms.DateTimePicker();
             this.lbData = new System.Windows.Forms.Label();
             this.pnlBotoesFiltro = new System.Windows.Forms.Panel();
+            this.btnImprimirCronograma = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLimpar = new System.Windows.Forms.Button();
             this.BtnHora1 = new System.Windows.Forms.Button();
@@ -75,14 +76,16 @@
             this.grpConsultaAgendamentos.Controls.Add(this.pnlBotoesFiltro);
             this.grpConsultaAgendamentos.Location = new System.Drawing.Point(14, 12);
             this.grpConsultaAgendamentos.Name = "grpConsultaAgendamentos";
-            this.grpConsultaAgendamentos.Size = new System.Drawing.Size(546, 104);
+            this.grpConsultaAgendamentos.Size = new System.Drawing.Size(546, 94);
             this.grpConsultaAgendamentos.TabIndex = 0;
             this.grpConsultaAgendamentos.TabStop = false;
             this.grpConsultaAgendamentos.Text = "Consulta Agendamento de Horários";
             // 
             // dtpData
             // 
-            this.dtpData.Location = new System.Drawing.Point(22, 54);
+            this.dtpData.Location = new System.Drawing.Point(6, 43);
+            this.dtpData.MaxDate = new System.DateTime(2120, 12, 31, 0, 0, 0, 0);
+            this.dtpData.MinDate = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
             this.dtpData.Name = "dtpData";
             this.dtpData.Size = new System.Drawing.Size(223, 20);
             this.dtpData.TabIndex = 7;
@@ -91,7 +94,7 @@
             // lbData
             // 
             this.lbData.AutoSize = true;
-            this.lbData.Location = new System.Drawing.Point(19, 27);
+            this.lbData.Location = new System.Drawing.Point(6, 27);
             this.lbData.Name = "lbData";
             this.lbData.Size = new System.Drawing.Size(30, 13);
             this.lbData.TabIndex = 6;
@@ -100,17 +103,28 @@
             // pnlBotoesFiltro
             // 
             this.pnlBotoesFiltro.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.pnlBotoesFiltro.Controls.Add(this.btnImprimirCronograma);
             this.pnlBotoesFiltro.Controls.Add(this.btnBuscar);
             this.pnlBotoesFiltro.Controls.Add(this.btnLimpar);
-            this.pnlBotoesFiltro.Location = new System.Drawing.Point(339, 27);
+            this.pnlBotoesFiltro.Location = new System.Drawing.Point(241, 27);
             this.pnlBotoesFiltro.Name = "pnlBotoesFiltro";
-            this.pnlBotoesFiltro.Size = new System.Drawing.Size(189, 47);
+            this.pnlBotoesFiltro.Size = new System.Drawing.Size(287, 47);
             this.pnlBotoesFiltro.TabIndex = 8;
+            // 
+            // btnImprimirCronograma
+            // 
+            this.btnImprimirCronograma.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnImprimirCronograma.Location = new System.Drawing.Point(168, 12);
+            this.btnImprimirCronograma.Name = "btnImprimirCronograma";
+            this.btnImprimirCronograma.Size = new System.Drawing.Size(111, 23);
+            this.btnImprimirCronograma.TabIndex = 9;
+            this.btnImprimirCronograma.Text = "Im&primir Cronograma";
+            this.btnImprimirCronograma.UseVisualStyleBackColor = true;
             // 
             // btnBuscar
             // 
             this.btnBuscar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnBuscar.Location = new System.Drawing.Point(96, 12);
+            this.btnBuscar.Location = new System.Drawing.Point(87, 12);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 1;
@@ -121,7 +135,7 @@
             // btnLimpar
             // 
             this.btnLimpar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnLimpar.Location = new System.Drawing.Point(15, 12);
+            this.btnLimpar.Location = new System.Drawing.Point(7, 12);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpar.TabIndex = 0;
@@ -180,7 +194,7 @@
             this.groupBox1.Controls.Add(this.lbHora2);
             this.groupBox1.Controls.Add(this.BtnHora1);
             this.groupBox1.Controls.Add(this.lbHora1);
-            this.groupBox1.Location = new System.Drawing.Point(13, 120);
+            this.groupBox1.Location = new System.Drawing.Point(13, 116);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(546, 246);
             this.groupBox1.TabIndex = 9;
@@ -451,7 +465,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(570, 381);
+            this.ClientSize = new System.Drawing.Size(570, 373);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpConsultaAgendamentos);
             this.Name = "FrmAgenda";
@@ -503,5 +517,6 @@
         private System.Windows.Forms.Label lbHora3;
         private System.Windows.Forms.Button BtnHora2;
         private System.Windows.Forms.Label lbHora2;
+        private System.Windows.Forms.Button btnImprimirCronograma;
     }
 }

@@ -82,7 +82,7 @@ CREATE TABLE `alunos` (
     `email` VARCHAR(60) NULL,
     `data_inicio_contrato` DATE NOT NULL,
     `data_termino_contrato` DATE NOT NULL,
-    `cep` INT(8) NULL,
+    `cep` VARCHAR(8) NULL,
     `logradouro` VARCHAR(120) NULL,
     `numero_residencial` INT(6) NULL,
     `bairro` VARCHAR(30) NULL,
@@ -102,6 +102,7 @@ CREATE TABLE `periodos` (
     `id_aluno` INT(11) NOT NULL,
     `id_dia_agendamento` INT(1) NOT NULL,
     `id_horario_agendamento` INT(2) NOT NULL,
+    `ativo` TINYINT(1) NOT NULL,
     PRIMARY KEY (`id_periodo`)
 )  AUTO_INCREMENT=1 ENGINE=INNODB
 	;
@@ -114,7 +115,7 @@ ADD CONSTRAINT `periodos_horariosagendamento_FK` FOREIGN KEY (`id_horario_agenda
 DROP TABLE IF EXISTS `agendamentos`;
 CREATE TABLE `agendamentos` (
     `id_agendamento` INT(11) NOT NULL AUTO_INCREMENT,
-    `id_instrutor` INT(11) NOT NULL,
+    `id_instrutor` INT(11) NULL,
     `id_aluno` INT(11) NOT NULL,    
     `data_agendamento` DATE NOT NULL,
     `id_horario_agendamento` INT(2) NOT NULL,
@@ -152,3 +153,11 @@ CREATE TABLE `eventos` (
 ALTER TABLE `eventos`
 ADD CONSTRAINT `eventos_agendamentos_FK` FOREIGN KEY (`id_agendamento`) REFERENCES `agendamentos` (`id_agendamento`),
 ADD CONSTRAINT `eventos_usuarios_FK` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
+
+
+DROP TABLE IF EXISTS `calendario`;
+CREATE TABLE `calendario` (
+    `data` DATE NOT NULL,
+    PRIMARY KEY (`data`)
+)  ENGINE=INNODB
+	;

@@ -56,7 +56,7 @@
             this.grpAlunosReg = new System.Windows.Forms.GroupBox();
             this.lbEstado = new System.Windows.Forms.Label();
             this.cboEstado = new System.Windows.Forms.ComboBox();
-            this.btnAlunosBusca = new System.Windows.Forms.Button();
+            this.btnBuscarCEP = new System.Windows.Forms.Button();
             this.lbMunicipio = new System.Windows.Forms.Label();
             this.txtMunicipio = new System.Windows.Forms.TextBox();
             this.lbBairro = new System.Windows.Forms.Label();
@@ -132,6 +132,10 @@
             this.cboTipoTelefone.Name = "cboTipoTelefone";
             this.cboTipoTelefone.Size = new System.Drawing.Size(87, 21);
             this.cboTipoTelefone.TabIndex = 28;
+            this.cboTipoTelefone.SelectedIndexChanged += new System.EventHandler(this.cboTipoTelefone_SelectedIndexChanged);
+            this.cboTipoTelefone.TextChanged += new System.EventHandler(this.cboTipoTelefone_TextChanged);
+            this.cboTipoTelefone.Click += new System.EventHandler(this.cboTipoTelefone_Click);
+            this.cboTipoTelefone.Leave += new System.EventHandler(this.cboTipoTelefone_Leave);
             // 
             // lbNumeroTelefone
             // 
@@ -147,10 +151,11 @@
             // 
             this.txtNumeroTelefone.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNumeroTelefone.Location = new System.Drawing.Point(120, 31);
-            this.txtNumeroTelefone.MaxLength = 15;
+            this.txtNumeroTelefone.MaxLength = 13;
             this.txtNumeroTelefone.Name = "txtNumeroTelefone";
             this.txtNumeroTelefone.Size = new System.Drawing.Size(166, 20);
             this.txtNumeroTelefone.TabIndex = 26;
+            this.txtNumeroTelefone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNumeroTelefone_KeyPress);
             // 
             // txtEmail
             // 
@@ -231,7 +236,6 @@
             // 
             // btnProximo
             // 
-            this.btnProximo.Enabled = false;
             this.btnProximo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnProximo.Location = new System.Drawing.Point(121, 40);
             this.btnProximo.Name = "btnProximo";
@@ -239,10 +243,10 @@
             this.btnProximo.TabIndex = 4;
             this.btnProximo.Text = ">";
             this.btnProximo.UseVisualStyleBackColor = true;
+            this.btnProximo.Click += new System.EventHandler(this.btnProximo_Click);
             // 
             // btnAnterior
             // 
-            this.btnAnterior.Enabled = false;
             this.btnAnterior.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnAnterior.Location = new System.Drawing.Point(95, 40);
             this.btnAnterior.Name = "btnAnterior";
@@ -250,6 +254,7 @@
             this.btnAnterior.TabIndex = 3;
             this.btnAnterior.Text = "<";
             this.btnAnterior.UseVisualStyleBackColor = true;
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
             // 
             // lbCodigo
             // 
@@ -354,7 +359,7 @@
             // 
             this.grpAlunosReg.Controls.Add(this.lbEstado);
             this.grpAlunosReg.Controls.Add(this.cboEstado);
-            this.grpAlunosReg.Controls.Add(this.btnAlunosBusca);
+            this.grpAlunosReg.Controls.Add(this.btnBuscarCEP);
             this.grpAlunosReg.Controls.Add(this.lbMunicipio);
             this.grpAlunosReg.Controls.Add(this.txtMunicipio);
             this.grpAlunosReg.Controls.Add(this.lbBairro);
@@ -392,16 +397,15 @@
             this.cboEstado.TabIndex = 22;
             this.cboEstado.Text = "SP";
             // 
-            // btnAlunosBusca
+            // btnBuscarCEP
             // 
-            this.btnAlunosBusca.Enabled = false;
-            this.btnAlunosBusca.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnAlunosBusca.Location = new System.Drawing.Point(93, 38);
-            this.btnAlunosBusca.Name = "btnAlunosBusca";
-            this.btnAlunosBusca.Size = new System.Drawing.Size(23, 23);
-            this.btnAlunosBusca.TabIndex = 20;
-            this.btnAlunosBusca.Text = "+";
-            this.btnAlunosBusca.UseVisualStyleBackColor = true;
+            this.btnBuscarCEP.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnBuscarCEP.Location = new System.Drawing.Point(93, 38);
+            this.btnBuscarCEP.Name = "btnBuscarCEP";
+            this.btnBuscarCEP.Size = new System.Drawing.Size(23, 23);
+            this.btnBuscarCEP.TabIndex = 20;
+            this.btnBuscarCEP.Text = "+";
+            this.btnBuscarCEP.UseVisualStyleBackColor = true;
             // 
             // lbMunicipio
             // 
@@ -496,6 +500,7 @@
             this.txtCEP.Name = "txtCEP";
             this.txtCEP.Size = new System.Drawing.Size(77, 20);
             this.txtCEP.TabIndex = 4;
+            this.txtCEP.TextChanged += new System.EventHandler(this.txtCEP_TextChanged);
             this.txtCEP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCEP_KeyPress);
             // 
             // grpPeriodoContrato
@@ -527,6 +532,8 @@
             // 
             this.dtpDataTerminoContrato.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDataTerminoContrato.Location = new System.Drawing.Point(131, 35);
+            this.dtpDataTerminoContrato.MaxDate = new System.DateTime(2120, 12, 31, 0, 0, 0, 0);
+            this.dtpDataTerminoContrato.MinDate = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
             this.dtpDataTerminoContrato.Name = "dtpDataTerminoContrato";
             this.dtpDataTerminoContrato.Size = new System.Drawing.Size(106, 20);
             this.dtpDataTerminoContrato.TabIndex = 3;
@@ -544,6 +551,8 @@
             // 
             this.dtpDataInicioContrato.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDataInicioContrato.Location = new System.Drawing.Point(11, 35);
+            this.dtpDataInicioContrato.MaxDate = new System.DateTime(2120, 12, 31, 0, 0, 0, 0);
+            this.dtpDataInicioContrato.MinDate = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
             this.dtpDataInicioContrato.Name = "dtpDataInicioContrato";
             this.dtpDataInicioContrato.Size = new System.Drawing.Size(106, 20);
             this.dtpDataInicioContrato.TabIndex = 1;
@@ -623,7 +632,7 @@
         private System.Windows.Forms.Label lbDataTerminoContrato;
         private System.Windows.Forms.DateTimePicker dtpDataInicioContrato;
         private System.Windows.Forms.Label lbDataInicioContrato;
-        private System.Windows.Forms.Button btnAlunosBusca;
+        private System.Windows.Forms.Button btnBuscarCEP;
         private System.Windows.Forms.Label lbEstado;
         private System.Windows.Forms.ComboBox cboEstado;
         private System.Windows.Forms.GroupBox grpTelefonePrincipal;

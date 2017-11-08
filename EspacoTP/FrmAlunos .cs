@@ -3,6 +3,8 @@ using EspacoTP.MODEL;
 using EspacoTP.UTIL;
 using System;
 using System.Windows.Forms;
+using Correios.CorreiosServiceReference;
+using Correios;
 
 namespace EspacoTP
 {
@@ -46,11 +48,22 @@ namespace EspacoTP
                 dtpDataInicioContrato.Enabled = true;
                 dtpDataTerminoContrato.Enabled = true;
 
+                btnProximo.Enabled = false;
+                btnAnterior.Enabled = false;
                 btnPeriodos.Enabled = false;
                 btnAlterar.Enabled = false;
                 btnFrequencia.Enabled = false;
 
                 cboTipoTelefone.Enabled = true;
+                if (cboTipoTelefone.SelectedIndex == 0)
+                {
+                    txtNumeroTelefone.Text = "";
+                    txtNumeroTelefone.Enabled = false;
+                }
+                else
+                {
+                    txtNumeroTelefone.Enabled = true;
+                }
 
                 txtCEP.Enabled = true;
                 txtLogradouro.Enabled = true;
@@ -58,6 +71,7 @@ namespace EspacoTP
                 txtBairro.Enabled = true;
                 txtMunicipio.Enabled = true;
 
+                btnBuscarCEP.Enabled = true;
                 btnBuscarAlunos.Enabled = false;
                 btnIncluir.Enabled = false;
                 btnDesfazer.Enabled = true;
@@ -74,6 +88,10 @@ namespace EspacoTP
                 dtpDataTerminoContrato.Enabled = false;
 
                 cboTipoTelefone.Enabled = false;
+                txtNumeroTelefone.Enabled = false;
+
+                btnProximo.Enabled = true;
+                btnAnterior.Enabled = true;
 
                 // permitir manipulação de dados de alunos, apenas caso haja alguma busca realizada
                 if (txtCodigo.Text.Trim() == "")
@@ -89,12 +107,13 @@ namespace EspacoTP
                     btnFrequencia.Enabled = true;
                 }
 
+                btnBuscarCEP.Enabled = false;
                 txtCEP.Enabled = false;
                 txtLogradouro.Enabled = false;
                 txtNumeroResidencia.Enabled = false;
                 txtBairro.Enabled = false;
                 txtMunicipio.Enabled = false;
-
+                
                 btnBuscarAlunos.Enabled = true;
                 btnIncluir.Enabled = true;
                 btnDesfazer.Enabled = false;
@@ -180,6 +199,26 @@ namespace EspacoTP
                 }
             }
 
+            if (!Validacoes.ValidarCampoEmBranco(cboTipoTelefone.Text.Trim()))
+            {
+                strMensagemValidacao = strMensagemValidacao + "\n - Campo TIPO TELEFONE é obrigatório.";
+            }
+            else
+            {
+                if (cboTipoTelefone.SelectedIndex > 0)
+                {
+                    if (!Validacoes.ValidarCampoEmBranco(txtNumeroTelefone.Text.Trim()))
+                    {
+                        strMensagemValidacao = strMensagemValidacao + "\n - Campo NÚMERO TELEFONE é obrigatório.";
+                    }
+                }
+            }
+
+            if (!Validacoes.ValidarDatasTrocadas(dtpDataInicioContrato.Value, dtpDataTerminoContrato.Value))
+            {
+                strMensagemValidacao = strMensagemValidacao + "\n - Campo DATA TÉRMINO não pode ser inferior a DATA INICIAL de vigência de contrato.";
+            }
+
             if ((!string.IsNullOrEmpty(strMensagemValidacao) || (strMensagemValidacao != "")))
             {
                 MessageBox.Show(
@@ -208,10 +247,8 @@ namespace EspacoTP
             alu.Nome = txtNome.Text.Trim();
             alu.Sobrenome = txtSobrenome.Text.Trim();
             alu.Cpf = txtCPF.Text.Trim();
-            if (!string.IsNullOrEmpty(cboTipoTelefone.Text.Trim()))
-            {
-                alu.IdTipoTelefone = (Convert.ToInt32(cboTipoTelefone.SelectedIndex) + 1).ToString();
-            }
+            alu.IdTipoTelefone = Convert.ToInt32((cboTipoTelefone.SelectedIndex) + 1);
+
 
             alu.NumeroTelefone = txtNumeroTelefone.Text.Trim();
             alu.Email = txtEmail.Text.Trim();
@@ -221,7 +258,7 @@ namespace EspacoTP
             {
                 alu.Cep = txtCEP.Text.Trim();
             }
-            
+
 
             alu.Logradouro = txtLogradouro.Text.Trim();
             if (!string.IsNullOrEmpty(txtNumeroResidencia.Text.Trim()))
@@ -229,7 +266,7 @@ namespace EspacoTP
                 alu.NumeroResidencial = txtNumeroResidencia.Text.Trim();
             }
             alu.Bairro = txtBairro.Text.Trim();
-            alu.Estado = "SP";
+            alu.Estado = cboEstado.Text.Trim();
             alu.Municipio = txtMunicipio.Text.Trim();
 
             alu.ValorAula = 14.95M;
@@ -270,8 +307,8 @@ namespace EspacoTP
 
         private void FrmAlunos_Load(object sender, System.EventArgs e)
         {
-            dtpDataInicioContrato.Value = DateTime.Now;
-            dtpDataTerminoContrato.Value = DateTime.Now;
+            //dtpDataInicioContrato.Value = DateTime.Now;
+            //dtpDataTerminoContrato.Value = DateTime.Now;
 
             PopularComboTipoTelefone();
 
@@ -300,7 +337,7 @@ namespace EspacoTP
 
         private void btnPeriodos_Click(object sender, EventArgs e)
         {
-            FrmPeriodos per = new FrmPeriodos(txtCodigo.Text);
+            FrmPeriodos per = new FrmPeriodos(txtCodigo.Text, dtpDataInicioContrato.Value, dtpDataTerminoContrato.Value);
             per.Show();
         }
 
@@ -312,6 +349,9 @@ namespace EspacoTP
 
         private void btnIncluir_Click(object sender, EventArgs e)
         {
+            //dtpDataInicioContrato.MinDate = DateTime.Now;
+            //dtpDataTerminoContrato.MinDate = DateTime.Now;
+
             booModoEscrita = true;
             booInclusao = true;
 
@@ -401,6 +441,126 @@ namespace EspacoTP
             }
         }
 
+        private void cboTipoTelefone_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboTipoTelefone.SelectedIndex == 0)
+            {
+                txtNumeroTelefone.Text = "";
+                txtNumeroTelefone.Enabled = false;
+            }
+            else
+            {
+                txtNumeroTelefone.Enabled = true;
+            }
+        }
+
+        private void cboTipoTelefone_Click(object sender, EventArgs e)
+        {
+            if (cboTipoTelefone.SelectedIndex == 0)
+            {
+                txtNumeroTelefone.Text = "";
+                txtNumeroTelefone.Enabled = false;
+            }
+            else
+            {
+                txtNumeroTelefone.Enabled = true;
+            }
+        }
+
+        private void cboTipoTelefone_TextChanged(object sender, EventArgs e)
+        {
+            if (cboTipoTelefone.SelectedIndex == 0)
+            {
+                txtNumeroTelefone.Text = "";
+                txtNumeroTelefone.Enabled = false;
+            }
+            else
+            {
+                txtNumeroTelefone.Enabled = true;
+            }
+        }
+
+        private void cboTipoTelefone_Leave(object sender, EventArgs e)
+        {
+            if (cboTipoTelefone.SelectedIndex == 0)
+            {
+                txtNumeroTelefone.Text = "";
+                txtNumeroTelefone.Enabled = false;
+            }
+            else
+            {
+                txtNumeroTelefone.Enabled = true;
+            }
+        }
+
+        private void btnAnterior_Click(object sender, EventArgs e)
+        {
+            int numLimite = AlunosBLL.ContarAlunos(out strMensagem, out booRetorno) - 1;
+            int numAtual = 0;
+
+            if (txtCodigo.Text.Trim() != "")
+            {
+                numAtual = Convert.ToInt32(txtCodigo.Text.Trim());
+            }
+
+            if (numAtual > 1)
+            {
+                txtCodigo.Text = (numAtual - 1).ToString();
+
+                MontarDetalhe();
+
+                booModoEscrita = false;
+                booInclusao = false;
+
+                HabilitarObjetos();
+            }
+        }
+
+        private void btnProximo_Click(object sender, EventArgs e)
+        {
+            int numLimite = AlunosBLL.ContarAlunos(out strMensagem, out booRetorno) - 1;
+            int numAtual = 0;
+
+            if (txtCodigo.Text.Trim() != "")
+            {
+                numAtual = Convert.ToInt32(txtCodigo.Text.Trim());
+            }
+
+            if (numAtual < numLimite)
+            {
+                txtCodigo.Text = (numAtual + 1).ToString();
+
+                MontarDetalhe();
+
+                booModoEscrita = false;
+                booInclusao = false;
+
+                HabilitarObjetos();
+            }
+        }
+
         #endregion
+
+        private void txtCEP_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCEP.Text.Trim().Length < 8)
+            {
+                txtLogradouro.Text = "";
+                txtBairro.Text = "";
+                txtMunicipio.Text = "";
+                txtNumeroResidencia.Text = "";
+                cboEstado.Text = "";
+            }
+            else
+            {
+                var Servico = new CorreiosApi();
+                var Dados = Servico.consultaCEP(txtCEP.Text);
+
+                txtLogradouro.Text = Dados.end;
+                txtBairro.Text = Dados.bairro;
+                txtMunicipio.Text = Dados.cidade;
+                cboEstado.Text = Dados.uf;
+            }
+        }
     }
 }

@@ -1,7 +1,8 @@
 -- criar script de versão, sem tela: CELULAR / FIXO / OUTRO
 START TRANSACTION;
 INSERT INTO tipos_telefone ( descricao, ativo )
-			SELECT 'CELULAR' AS descricao,	1 AS ativo
+			SELECT 'NENHUM' AS descricao,	1 AS ativo
+UNION ALL 	SELECT 'CELULAR', 				1
 UNION ALL 	SELECT 'FIXO', 					1
 UNION ALL 	SELECT 'OUTRO',					1;
 COMMIT;
@@ -11,7 +12,7 @@ SELECT * FROM tipos_telefone;
 START TRANSACTION;
 INSERT INTO dias_agendamento ( dia, ativo )
 			SELECT 'DOMINGO' AS dia,	1 AS ativo
-UNION ALL 	SELECT 'SEGUNDA', 			1
+UNION ALL 	SELECT 'SEGUNDA-FEIRA',		1
 UNION ALL 	SELECT 'TERÇA-FEIRA', 		1
 UNION ALL 	SELECT 'QUARTA-FEIRA', 		1
 UNION ALL 	SELECT 'QUINTA-FEIRA', 		1

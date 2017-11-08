@@ -16,6 +16,7 @@ namespace estudio_tp.Model
 		private int _idAluno;
 		private int _idDiaAgendamento;
         private int _idHoraAgendamento;
+        private int _ativo;
 
 		#endregion
 
@@ -49,11 +50,18 @@ namespace estudio_tp.Model
 			set { _idHoraAgendamento = value; }
 		}
 
-		#endregion
+        [XmlElement(ElementName = "Ativo")]
+        public int Ativo
+        {
+            get { return _ativo; }
+            set { _ativo = value; }
+        }
 
-		#region Constructors
+        #endregion
 
-		public PeriodosTO()
+        #region Constructors
+
+        public PeriodosTO()
 		{
 		}
 

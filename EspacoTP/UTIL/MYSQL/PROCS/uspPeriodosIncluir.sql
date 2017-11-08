@@ -7,7 +7,8 @@ DELIMITER $$
 CREATE PROCEDURE `uspPeriodosIncluir`(
 IN pNumIdAluno INT(11),
 IN pNumIdDiaAgendamento INT(11),
-IN pNumIdHorarioAgendamento INT(2)
+IN pNumIdHorarioAgendamento INT(2),
+IN pBooAtivo TINYINT(1)
 )
 
 BEGIN
@@ -16,13 +17,15 @@ BEGIN
     (
 		id_aluno,
 		id_dia_agendamento,
-		id_horario_agendamento
+		id_horario_agendamento,
+		ativo
     )
     VALUES
     (
 		pNumIdAluno,
 		pNumIdDiaAgendamento,
-		pNumIdHorarioAgendamento
+		pNumIdHorarioAgendamento,
+        pBooAtivo
     );
 
 END $$

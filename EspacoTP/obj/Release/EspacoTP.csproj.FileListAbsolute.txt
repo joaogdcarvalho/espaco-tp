@@ -21,3 +21,4 @@ C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Release\EspacoTP.exe
 C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Release\EspacoTP.pdb
 C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Release\EspacoTP.FrmPagamentosCadastro.resources
 C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Release\EspacoTP.FrmPagamentosConsulta.resources
+C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Release\EspacoTP.csprojResolveAssemblyReference.cache

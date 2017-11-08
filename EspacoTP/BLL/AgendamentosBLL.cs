@@ -99,5 +99,18 @@ namespace EspacoTP.BLL
 
             return booEfetivacao;
         }
+
+        public static bool IncluirAgendamentoFlexivel(out string pstrMensagem, out bool pbooRetorno, int pNumIdAluno, DateTime pDataInicioContrato, DateTime pDataTerminoContrato, int pnumIdDiaAgendamento, int pnumIdHorarioAgendamento)
+        {
+            bool booEfetivacao = false;
+            int intQuantidadeRg = AgendamentosDAL.IncluirAgendamentoFlexivel(out pstrMensagem, out pbooRetorno, pNumIdAluno, pDataInicioContrato, pDataTerminoContrato, pnumIdDiaAgendamento, pnumIdHorarioAgendamento);
+
+            if (intQuantidadeRg > 0)
+            {
+                booEfetivacao = true;
+            }
+
+            return booEfetivacao;
+        }
     }
 }

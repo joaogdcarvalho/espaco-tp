@@ -204,9 +204,12 @@
             // 
             this.dtpPeriodoAte.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpPeriodoAte.Location = new System.Drawing.Point(141, 35);
+            this.dtpPeriodoAte.MaxDate = new System.DateTime(2120, 12, 31, 0, 0, 0, 0);
+            this.dtpPeriodoAte.MinDate = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
             this.dtpPeriodoAte.Name = "dtpPeriodoAte";
             this.dtpPeriodoAte.Size = new System.Drawing.Size(106, 20);
             this.dtpPeriodoAte.TabIndex = 3;
+            this.dtpPeriodoAte.Value = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
             // 
             // lbPeriodoAte
             // 
@@ -221,9 +224,12 @@
             // 
             this.dtpPeriodoDe.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpPeriodoDe.Location = new System.Drawing.Point(19, 35);
+            this.dtpPeriodoDe.MaxDate = new System.DateTime(2120, 12, 31, 0, 0, 0, 0);
+            this.dtpPeriodoDe.MinDate = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
             this.dtpPeriodoDe.Name = "dtpPeriodoDe";
             this.dtpPeriodoDe.Size = new System.Drawing.Size(106, 20);
             this.dtpPeriodoDe.TabIndex = 1;
+            this.dtpPeriodoDe.Value = new System.DateTime(2120, 12, 31, 0, 0, 0, 0);
             // 
             // lbPeriodoDe
             // 

@@ -9,10 +9,12 @@ namespace EspacoTP
     public partial class FrmPeriodos : Form
     {
         #region construtor
-        public FrmPeriodos(string pstrIdAluno)
+        public FrmPeriodos(string pstrIdAluno, DateTime pdtpDataInicioContrato, DateTime pdtpDataTerminoContrato)
         {
             InitializeComponent();
             this.numIdAluno = Convert.ToInt32(pstrIdAluno);
+            this.dtInicioContrato = pdtpDataInicioContrato;
+            this.dtTerminoContrato = pdtpDataTerminoContrato;
         }
 
         #endregion
@@ -24,33 +26,59 @@ namespace EspacoTP
 
         bool booModoEscrita = false;
         bool booInclusao = false;
+
         int numIdAluno = default(int);
+        DateTime dtInicioContrato = default(DateTime);
+        DateTime dtTerminoContrato = default(DateTime);
 
         #endregion
 
         #region métodos
+
+        private void PopularComboHorario()
+        {
+            cboHorario.DataSource = AgendamentosBLL.PopularComboHorario(out strMensagem, out booRetorno);
+            cboHorario.DisplayMember = "descricao";
+        }
+
+        private void PopularComboDia()
+        {
+            cboDia.DataSource = AgendamentosBLL.PopularComboDia(out strMensagem, out booRetorno);
+            cboDia.DisplayMember = "descricao";
+        }
 
         public void HabilitarObjetos()
         {
             if (booModoEscrita)
             {
                 btnIncluir.Enabled = false;
-                btnExcluir.Enabled = false;
+                btnAlterar.Enabled = false;
                 btnDesfazer.Enabled = true;
                 btnSalvar.Enabled = true;
 
-                cboDia.Enabled = true;
-                cboHorario.Enabled = true;
+                if (booInclusao)
+                {
+                    cboDia.Enabled = true;
+                    cboHorario.Enabled = true;
+                    chkAtivo.Enabled = true;
+                }
+                else
+                {
+                    cboDia.Enabled = false;
+                    cboHorario.Enabled = false;
+                    chkAtivo.Enabled = true;
+                }
             }
             else
             {
                 btnIncluir.Enabled = true;
-                btnExcluir.Enabled = true;
+                btnAlterar.Enabled = true;
                 btnDesfazer.Enabled = false;
                 btnSalvar.Enabled = false;
 
                 cboDia.Enabled = false;
                 cboHorario.Enabled = false;
+                chkAtivo.Enabled = false;
             }
         }
 
@@ -58,6 +86,7 @@ namespace EspacoTP
         {
             cboDia.Text = "";
             cboHorario.Text = "";
+            chkAtivo.Checked = true;
         }
 
         public void MontarGrid()
@@ -70,6 +99,7 @@ namespace EspacoTP
             txtCodigoPeriodo.Text = grdPeriodos.Rows[grdPeriodos.CurrentRow.Index].Cells["colIdPeriodo"].Value.ToString();
             cboDia.SelectedIndex = Convert.ToInt32(grdPeriodos.Rows[grdPeriodos.CurrentRow.Index].Cells["colIdDiaAgendamento"].Value) - 1;
             cboHorario.SelectedIndex = Convert.ToInt32(grdPeriodos.Rows[grdPeriodos.CurrentRow.Index].Cells["colIdHorarioAgendamento"].Value) - 1;
+            chkAtivo.Checked = (bool)grdPeriodos.Rows[grdPeriodos.CurrentRow.Index].Cells["colAtivo"].Value;
         }
 
         public bool ValidarEfetivacao()
@@ -79,6 +109,26 @@ namespace EspacoTP
             if (!Validacoes.ValidarCampoEmBranco(cboHorario.SelectedValue.ToString()))
             {
                 strMensagemValidacao = strMensagemValidacao + "\n - Campo HORÁRIO é obrigatório.";
+            }
+            else
+            {
+                int numCodigoAluno = Convert.ToInt32(txtCodigoAluno.Text);
+                int numIdDiaPeriodo = (cboDia.SelectedIndex + 1);
+                int numIdHorarioPeriodo = (cboHorario.SelectedIndex + 1);
+
+                if (booInclusao)
+                {
+                    if (!PeriodosBLL.ValidarPeriodoRepetido(out strMensagem, out booRetorno, numCodigoAluno, numIdDiaPeriodo, numIdHorarioPeriodo))
+                    {
+                        strMensagemValidacao = strMensagemValidacao + "\n - PERÍODO já cadastrado.";
+                    }
+                }
+                
+
+                if (!PeriodosBLL.ValidarDiaRepetido(out strMensagem, out booRetorno, numCodigoAluno, numIdDiaPeriodo, numIdHorarioPeriodo))
+                {
+                    strMensagemValidacao = strMensagemValidacao + "\n - ALUNO possui PERÍODO ativo para esse dia. "; // + strHorarioAgendamento + ".";
+                }
             }
 
             if ((!string.IsNullOrEmpty(strMensagemValidacao) || (strMensagemValidacao != "")))
@@ -108,8 +158,14 @@ namespace EspacoTP
             per.IdAluno = Convert.ToInt32(txtCodigoAluno.Text.Trim());
             per.IdDiaAgendamento = Convert.ToInt32(cboDia.SelectedIndex) + 1;
             per.IdHoraAgendamento = Convert.ToInt32(cboHorario.SelectedIndex) + 1;
+            per.Ativo = Convert.ToInt32(chkAtivo.Checked);
 
             PeriodosBLL.TratarEfetivacao(out strMensagem, out booRetorno, booInclusao, per);
+
+            if (booInclusao)
+            {
+                AgendamentosBLL.IncluirAgendamentoFlexivel(out strMensagem, out booRetorno, per.IdAluno, dtpDataInicioContrato.Value, dtpDataTerminoContrato.Value, Convert.ToInt32(cboDia.SelectedIndex), per.IdHoraAgendamento);
+            }
 
             Cursor.Current = Cursors.Default;
 
@@ -139,16 +195,6 @@ namespace EspacoTP
             }
         }
 
-        private void PopularComboHorario()
-        {
-            cboHorario.DataSource = AgendamentosBLL.PopularComboHorario(out strMensagem, out booRetorno);
-            cboHorario.DisplayMember = "descricao";
-        }
-        private void PopularComboDia()
-        {
-            cboDia.DataSource = AgendamentosBLL.PopularComboDia(out strMensagem, out booRetorno);
-            cboDia.DisplayMember = "descricao";
-        }
 
         #endregion
 
@@ -157,9 +203,13 @@ namespace EspacoTP
         private void FrmPeriodos_Load(object sender, EventArgs e)
         {
             txtCodigoAluno.Text = numIdAluno.ToString();
+            dtpDataInicioContrato.Value = dtInicioContrato;
+            dtpDataTerminoContrato.Value = dtTerminoContrato;
 
             PopularComboHorario();
             PopularComboDia();
+
+            LimparCampos();
 
             booModoEscrita = false;
             HabilitarObjetos();
@@ -188,28 +238,12 @@ namespace EspacoTP
             txtCodigoPeriodo.Text = Convert.ToString(PeriodosBLL.ContarPeriodos(out strMensagem, out booRetorno));
         }
 
-        private void btnExcluir_Click(object sender, EventArgs e)
+        private void btnAlterar_Click(object sender, EventArgs e)
         {
-            // formatação da caixa de mensagem.
-            String Mensagem = "Tem certeza que deseja excluir o Período selecionado ?";
-            String Titulo = "Confirmação";
-            MessageBoxButtons Botao = MessageBoxButtons.YesNo;
-            MessageBoxIcon Icone = MessageBoxIcon.Question;
-
-            // caso clique para não efetivar, tela será fechada ignorando processo em andamento
-            if (MessageBox.Show(Mensagem, Titulo, Botao, Icone) == DialogResult.Yes)
-            {
-                TratarEfetivacao();
-            }
-
-            LimparCampos();
-
-            booModoEscrita = false;
+            booModoEscrita = true;
             booInclusao = false;
 
             HabilitarObjetos();
-
-            MontarGrid();
         }
 
         private void btnDesfazer_Click(object sender, EventArgs e)

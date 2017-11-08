@@ -16,7 +16,7 @@ namespace EspacoTP.MODEL
         private string _nome;
         private string _sobrenome;
         private string _cpf;
-        private string _idTipoTelefone;
+        private int _idTipoTelefone;
 
         private string _numeroTelefone;
         private string _email;
@@ -67,7 +67,7 @@ namespace EspacoTP.MODEL
         }
 
         [XmlElement(ElementName = "IdTipoTelefone")]
-        public string IdTipoTelefone
+        public int IdTipoTelefone
         {
             get { return _idTipoTelefone; }
             set { _idTipoTelefone = value; }

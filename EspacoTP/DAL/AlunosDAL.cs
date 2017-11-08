@@ -50,7 +50,7 @@ namespace EspacoTP.DAL
                                         al.Nome = rd["nome"].ToString().Trim();
                                         al.Sobrenome = rd["sobrenome"].ToString().Trim();
                                         al.Cpf = rd["cpf"].ToString().Trim();
-                                        al.IdTipoTelefone = rd["id_tipo_telefone"].ToString().Trim();
+                                        al.IdTipoTelefone = Convert.ToInt32(rd["id_tipo_telefone"]);
                                         al.NumeroTelefone = rd["numero_telefone"].ToString().Trim();
                                         al.Email = rd["email"].ToString().Trim();
                                         al.DataInicioContrato = Convert.ToDateTime(rd["data_inicio_contrato"]);

@@ -107,6 +107,8 @@
             // 
             this.dtpDataTerminoContrato.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDataTerminoContrato.Location = new System.Drawing.Point(125, 35);
+            this.dtpDataTerminoContrato.MaxDate = new System.DateTime(2120, 12, 31, 0, 0, 0, 0);
+            this.dtpDataTerminoContrato.MinDate = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
             this.dtpDataTerminoContrato.Name = "dtpDataTerminoContrato";
             this.dtpDataTerminoContrato.Size = new System.Drawing.Size(106, 20);
             this.dtpDataTerminoContrato.TabIndex = 3;
@@ -124,9 +126,12 @@
             // 
             this.dtpDataInicioContrato.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDataInicioContrato.Location = new System.Drawing.Point(11, 35);
+            this.dtpDataInicioContrato.MaxDate = new System.DateTime(2120, 12, 31, 0, 0, 0, 0);
+            this.dtpDataInicioContrato.MinDate = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
             this.dtpDataInicioContrato.Name = "dtpDataInicioContrato";
             this.dtpDataInicioContrato.Size = new System.Drawing.Size(106, 20);
             this.dtpDataInicioContrato.TabIndex = 1;
+            this.dtpDataInicioContrato.Value = new System.DateTime(2017, 11, 7, 0, 0, 0, 0);
             // 
             // lbDataInicioContrato
             // 

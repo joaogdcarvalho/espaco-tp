@@ -31,6 +31,8 @@ namespace EspacoTP.DAL
         private const string VALIDAR_TURMA = "uspValidarTurma";
         private const string VALIDAR_CRONOGRAMA_DIA = "uspValidarCronogramaDia";
 
+        private const string INCLUIR_AGENDAMENTO_FLEXIVEL = "uspAgendamentoFlexivelIncluir";
+
         #endregion
 
         #region Methods
@@ -314,6 +316,48 @@ namespace EspacoTP.DAL
                         catch (MySqlException ex)
                         {
                             pstrMensagem = string.Format("Erro: 'Método: AgendamentosDAL.Insert'. \n\n{0}.", ex.Message);
+                            pbooRetorno = false;
+                        }
+                        finally
+                        {
+                            cmd.Connection.Close();
+                        }
+                    }
+                }
+            }
+            else
+            {
+                conn.Close();
+            }
+            return intResult;
+        }
+
+        public static Int32 IncluirAgendamentoFlexivel(out string pstrMensagem, out bool pbooRetorno, int pNumIdAluno, DateTime pDataInicioContrato, DateTime pDataTerminoContrato, int pnumIdDiaAgendamento, int pnumIdHorarioAgendamento)
+        {
+            Int32 intResult = 0;
+            MySqlConnection conn = ConexaoBD.CriarConexao(out pstrMensagem, out pbooRetorno);
+            if (pbooRetorno)
+            {
+                using (conn)
+                {
+                    using (MySqlCommand cmd = new MySqlCommand(INCLUIR_AGENDAMENTO_FLEXIVEL, conn))
+                    {
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        try
+                        {
+                            cmd.Parameters.Clear();
+
+                            cmd.Parameters.Add(new MySqlParameter("pNumIdAluno", pNumIdAluno));
+                            cmd.Parameters.Add(new MySqlParameter("pDtDataInicioContrato", pDataInicioContrato));
+                            cmd.Parameters.Add(new MySqlParameter("pDtDataTerminoContrato", pDataTerminoContrato));
+                            cmd.Parameters.Add(new MySqlParameter("pNumIdDiaAgendamento", pnumIdDiaAgendamento));
+                            cmd.Parameters.Add(new MySqlParameter("pNumIdHorarioAgendamento", pnumIdHorarioAgendamento));
+
+                            intResult = cmd.ExecuteNonQuery();
+                        }
+                        catch (MySqlException ex)
+                        {
+                            pstrMensagem = string.Format("Erro: 'Método: AgendamentosDAL.IncluirAgendamentoFlexivel'. \n\n{0}.", ex.Message);
                             pbooRetorno = false;
                         }
                         finally

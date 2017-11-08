@@ -15,7 +15,8 @@ BEGIN
         p.id_dia_agendamento		as 'id_dia_agendamento',
         d.dia						as 'dia',
         p.id_horario_agendamento 	as 'id_horario_agendamento',
-        h.hora						as 'hora'
+        h.hora						as 'hora',
+        p.ativo						as 'ativo'
 	FROM 
 		periodos p
         

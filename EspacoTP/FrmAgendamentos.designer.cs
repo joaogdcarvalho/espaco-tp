@@ -43,12 +43,6 @@
             this.dtpData = new System.Windows.Forms.DateTimePicker();
             this.grpTurma = new System.Windows.Forms.GroupBox();
             this.grdTurma = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btnImprimirCronograma = new System.Windows.Forms.Button();
-            this.btnAlterar = new System.Windows.Forms.Button();
-            this.btnIncluir = new System.Windows.Forms.Button();
-            this.btnSalvar = new System.Windows.Forms.Button();
-            this.btnDesfazer = new System.Windows.Forms.Button();
             this.colIdAgendamento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colIdAluno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNomeAluno = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +50,12 @@
             this.colIdInstrutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNomeInstrutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAulaAgendada = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAlterar = new System.Windows.Forms.Button();
+            this.btnIncluir = new System.Windows.Forms.Button();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.btnDesfazer = new System.Windows.Forms.Button();
+            this.btnHistorico = new System.Windows.Forms.Button();
             this.grpDetalhes.SuspendLayout();
             this.grpTurma.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdTurma)).BeginInit();
@@ -237,73 +237,6 @@
             this.grdTurma.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTurma_CellClick);
             this.grdTurma.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdTurma_CellEnter);
             // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.panel1.Controls.Add(this.btnImprimirCronograma);
-            this.panel1.Controls.Add(this.btnAlterar);
-            this.panel1.Controls.Add(this.btnIncluir);
-            this.panel1.Controls.Add(this.btnSalvar);
-            this.panel1.Controls.Add(this.btnDesfazer);
-            this.panel1.Location = new System.Drawing.Point(12, 208);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(546, 47);
-            this.panel1.TabIndex = 7;
-            // 
-            // btnImprimirCronograma
-            // 
-            this.btnImprimirCronograma.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnImprimirCronograma.Location = new System.Drawing.Point(173, 12);
-            this.btnImprimirCronograma.Name = "btnImprimirCronograma";
-            this.btnImprimirCronograma.Size = new System.Drawing.Size(125, 23);
-            this.btnImprimirCronograma.TabIndex = 8;
-            this.btnImprimirCronograma.Text = "Im&primir Cronograma";
-            this.btnImprimirCronograma.UseVisualStyleBackColor = true;
-            // 
-            // btnAlterar
-            // 
-            this.btnAlterar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnAlterar.Location = new System.Drawing.Point(92, 12);
-            this.btnAlterar.Name = "btnAlterar";
-            this.btnAlterar.Size = new System.Drawing.Size(75, 23);
-            this.btnAlterar.TabIndex = 1;
-            this.btnAlterar.Text = "&Alterar";
-            this.btnAlterar.UseVisualStyleBackColor = true;
-            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
-            // 
-            // btnIncluir
-            // 
-            this.btnIncluir.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnIncluir.Location = new System.Drawing.Point(11, 12);
-            this.btnIncluir.Name = "btnIncluir";
-            this.btnIncluir.Size = new System.Drawing.Size(75, 23);
-            this.btnIncluir.TabIndex = 0;
-            this.btnIncluir.Text = "&Incluir";
-            this.btnIncluir.UseVisualStyleBackColor = true;
-            this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
-            // 
-            // btnSalvar
-            // 
-            this.btnSalvar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSalvar.Location = new System.Drawing.Point(453, 12);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 3;
-            this.btnSalvar.Text = "&Salvar";
-            this.btnSalvar.UseVisualStyleBackColor = true;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
-            // 
-            // btnDesfazer
-            // 
-            this.btnDesfazer.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnDesfazer.Location = new System.Drawing.Point(372, 12);
-            this.btnDesfazer.Name = "btnDesfazer";
-            this.btnDesfazer.Size = new System.Drawing.Size(75, 23);
-            this.btnDesfazer.TabIndex = 2;
-            this.btnDesfazer.Text = "&Desfazer";
-            this.btnDesfazer.UseVisualStyleBackColor = true;
-            this.btnDesfazer.Click += new System.EventHandler(this.btnDesfazer_Click);
-            // 
             // colIdAgendamento
             // 
             this.colIdAgendamento.DataPropertyName = "id_agendamento";
@@ -367,6 +300,73 @@
             this.colAulaAgendada.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.colAulaAgendada.Width = 70;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel1.Controls.Add(this.btnHistorico);
+            this.panel1.Controls.Add(this.btnAlterar);
+            this.panel1.Controls.Add(this.btnIncluir);
+            this.panel1.Controls.Add(this.btnSalvar);
+            this.panel1.Controls.Add(this.btnDesfazer);
+            this.panel1.Location = new System.Drawing.Point(12, 208);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(546, 47);
+            this.panel1.TabIndex = 7;
+            // 
+            // btnAlterar
+            // 
+            this.btnAlterar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnAlterar.Location = new System.Drawing.Point(92, 12);
+            this.btnAlterar.Name = "btnAlterar";
+            this.btnAlterar.Size = new System.Drawing.Size(75, 23);
+            this.btnAlterar.TabIndex = 1;
+            this.btnAlterar.Text = "&Alterar";
+            this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
+            // 
+            // btnIncluir
+            // 
+            this.btnIncluir.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnIncluir.Location = new System.Drawing.Point(11, 12);
+            this.btnIncluir.Name = "btnIncluir";
+            this.btnIncluir.Size = new System.Drawing.Size(75, 23);
+            this.btnIncluir.TabIndex = 0;
+            this.btnIncluir.Text = "&Incluir";
+            this.btnIncluir.UseVisualStyleBackColor = true;
+            this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnSalvar.Location = new System.Drawing.Point(453, 12);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(75, 23);
+            this.btnSalvar.TabIndex = 3;
+            this.btnSalvar.Text = "&Salvar";
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
+            // 
+            // btnDesfazer
+            // 
+            this.btnDesfazer.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnDesfazer.Location = new System.Drawing.Point(372, 12);
+            this.btnDesfazer.Name = "btnDesfazer";
+            this.btnDesfazer.Size = new System.Drawing.Size(75, 23);
+            this.btnDesfazer.TabIndex = 2;
+            this.btnDesfazer.Text = "&Desfazer";
+            this.btnDesfazer.UseVisualStyleBackColor = true;
+            this.btnDesfazer.Click += new System.EventHandler(this.btnDesfazer_Click);
+            // 
+            // btnHistorico
+            // 
+            this.btnHistorico.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnHistorico.Location = new System.Drawing.Point(173, 12);
+            this.btnHistorico.Name = "btnHistorico";
+            this.btnHistorico.Size = new System.Drawing.Size(75, 23);
+            this.btnHistorico.TabIndex = 8;
+            this.btnHistorico.Text = "&Histórico";
+            this.btnHistorico.UseVisualStyleBackColor = true;
+            // 
             // FrmAgendamentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -410,7 +410,6 @@
         private System.Windows.Forms.Button btnBuscarAlunos;
         private System.Windows.Forms.TextBox txtCodigoAgendamento;
         private System.Windows.Forms.Label lbCodigoAgendamento;
-        private System.Windows.Forms.Button btnImprimirCronograma;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIdAgendamento;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIdAluno;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNomeAluno;
@@ -418,5 +417,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colIdInstrutor;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNomeInstrutor;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colAulaAgendada;
+        private System.Windows.Forms.Button btnHistorico;
     }
 }

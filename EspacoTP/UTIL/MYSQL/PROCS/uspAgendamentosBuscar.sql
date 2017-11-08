@@ -25,7 +25,7 @@ BEGIN
         JOIN	alunos a
         ON		a.id_aluno = ag.id_aluno
         
-        JOIN	instrutores i
+        LEFT JOIN	instrutores i
         ON		i.id_instrutor = ag.id_instrutor
         
         JOIN	horarios_agendamento h

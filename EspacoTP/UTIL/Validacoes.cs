@@ -36,7 +36,7 @@ namespace EspacoTP.UTIL
             return booResultado;
         }
 
-        public static bool ValidarCPF(string pCPF)
+        public static bool ValidarCPF(string pstrCPF)
         {
             int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
             int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
@@ -46,15 +46,15 @@ namespace EspacoTP.UTIL
             int soma;
             int resto;
 
-            pCPF = pCPF.Trim();
-            pCPF = pCPF.Replace(".", "").Replace("-", "");
+            pstrCPF = pstrCPF.Trim();
+            pstrCPF = pstrCPF.Replace(".", "").Replace("-", "");
 
-            if (pCPF.Length != 11)
+            if (pstrCPF.Length != 11)
             {
                 return false;
             }
 
-            tempCpf = pCPF.Substring(0, 9);
+            tempCpf = pstrCPF.Substring(0, 9);
             soma = 0;
 
             for (int i = 0; i < 9; i++)
@@ -79,7 +79,21 @@ namespace EspacoTP.UTIL
 
             digito = digito + resto.ToString();
 
-            return pCPF.EndsWith(digito);
+            return pstrCPF.EndsWith(digito);
         }
+
+        public static bool ValidarDatasTrocadas(DateTime pdtDataInicial, DateTime pdtDataFinal)
+        {
+            bool booResultado = false;
+
+            if (pdtDataInicial.Date < pdtDataFinal.Date)
+            {
+                booResultado = true;
+            }
+
+            return booResultado;
+        }
+
+        
     }
 }
