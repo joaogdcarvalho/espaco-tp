@@ -17,7 +17,7 @@ BEGIN
     DECLARE varBooPeriodoRepetido TINYINT DEFAULT 0;
         
 	SELECT
-		COUNT(a.id_periodo)
+		COUNT(p.id_periodo)
 	INTO
         varNumCount
 	FROM 

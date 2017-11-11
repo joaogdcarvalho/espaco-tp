@@ -100,10 +100,10 @@ namespace EspacoTP.BLL
             return booEfetivacao;
         }
 
-        public static bool IncluirAgendamentoFlexivel(out string pstrMensagem, out bool pbooRetorno, int pNumIdAluno, DateTime pDataInicioContrato, DateTime pDataTerminoContrato, int pnumIdDiaAgendamento, int pnumIdHorarioAgendamento)
+        public static bool IncluirAgendamentoFlexivel(out string pstrMensagem, out bool pbooRetorno, int pNumIdAluno, DateTime pDataInicioContrato, DateTime pDataTerminoContrato, int pnumIdDiaAgendamento, int pnumIdHorarioAgendamento, int pnumAtivo)
         {
             bool booEfetivacao = false;
-            int intQuantidadeRg = AgendamentosDAL.IncluirAgendamentoFlexivel(out pstrMensagem, out pbooRetorno, pNumIdAluno, pDataInicioContrato, pDataTerminoContrato, pnumIdDiaAgendamento, pnumIdHorarioAgendamento);
+            int intQuantidadeRg = AgendamentosDAL.IncluirAgendamentoFlexivel(out pstrMensagem, out pbooRetorno, pNumIdAluno, pDataInicioContrato, pDataTerminoContrato, pnumIdDiaAgendamento, pnumIdHorarioAgendamento, pnumAtivo);
 
             if (intQuantidadeRg > 0)
             {
@@ -112,5 +112,32 @@ namespace EspacoTP.BLL
 
             return booEfetivacao;
         }
+
+        public static bool AlterarAgendamentoFlexivel(out string pstrMensagem, out bool pbooRetorno, int pNumIdAluno, DateTime pDataTerminoContrato, int pnumIdDiaAgendamento, int pnumIdHorarioAgendamento, int pnumAtivo)
+        {
+            bool booEfetivacao = false;
+            int intQuantidadeRg = AgendamentosDAL.AlterarAgendamentoFlexivel(out pstrMensagem, out pbooRetorno, pNumIdAluno, pDataTerminoContrato, pnumIdDiaAgendamento, pnumIdHorarioAgendamento, pnumAtivo);
+
+            if (intQuantidadeRg > 0)
+            {
+                booEfetivacao = true;
+            }
+
+            return booEfetivacao;
+        }
+
+        public static bool TratarAgendamentoFlexivelContrato(out string pstrMensagem, out bool pbooRetorno, int pnumIdAluno, DateTime pDataTerminoContrato, DateTime DataTerminoContratoAnterior)
+        {
+            bool booEfetivacao = false;
+            int intQuantidadeRg = AgendamentosDAL.TratarAgendamentoFlexivelContrato(out pstrMensagem, out pbooRetorno, pnumIdAluno, pDataTerminoContrato, DataTerminoContratoAnterior);
+
+            if (intQuantidadeRg > 0)
+            {
+                booEfetivacao = true;
+            }
+
+            return booEfetivacao;
+        }
+
     }
 }

@@ -31,6 +31,7 @@ namespace EspacoTP
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUsuarios));
             this.grpUsuarios = new System.Windows.Forms.GroupBox();
             this.grdUsuarios = new System.Windows.Forms.DataGridView();
             this.pnlBotoes = new System.Windows.Forms.Panel();
@@ -102,7 +103,7 @@ namespace EspacoTP
             // 
             // pnlBotoes
             // 
-            this.pnlBotoes.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.pnlBotoes.BackColor = System.Drawing.Color.MintCream;
             this.pnlBotoes.Controls.Add(this.btnAlterar);
             this.pnlBotoes.Controls.Add(this.btnIncluir);
             this.pnlBotoes.Controls.Add(this.btnSalvar);
@@ -170,7 +171,7 @@ namespace EspacoTP
             this.grpDetalhes.Controls.Add(this.lbCodigo);
             this.grpDetalhes.Location = new System.Drawing.Point(12, 301);
             this.grpDetalhes.Name = "grpDetalhes";
-            this.grpDetalhes.Size = new System.Drawing.Size(546, 206);
+            this.grpDetalhes.Size = new System.Drawing.Size(546, 195);
             this.grpDetalhes.TabIndex = 2;
             this.grpDetalhes.TabStop = false;
             this.grpDetalhes.Text = "Detalhes";
@@ -182,7 +183,7 @@ namespace EspacoTP
             this.lbNome.Location = new System.Drawing.Point(98, 22);
             this.lbNome.Name = "lbNome";
             this.lbNome.Size = new System.Drawing.Size(35, 13);
-            this.lbNome.TabIndex = 8;
+            this.lbNome.TabIndex = 3;
             this.lbNome.Text = "Nome";
             // 
             // txtNome
@@ -192,16 +193,16 @@ namespace EspacoTP
             this.txtNome.MaxLength = 40;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(430, 20);
-            this.txtNome.TabIndex = 9;
+            this.txtNome.TabIndex = 4;
             // 
             // grpTipoUsuario
             // 
             this.grpTipoUsuario.Controls.Add(this.radPadrao);
             this.grpTipoUsuario.Controls.Add(this.radAdministrador);
-            this.grpTipoUsuario.Location = new System.Drawing.Point(11, 134);
+            this.grpTipoUsuario.Location = new System.Drawing.Point(11, 127);
             this.grpTipoUsuario.Name = "grpTipoUsuario";
             this.grpTipoUsuario.Size = new System.Drawing.Size(518, 55);
-            this.grpTipoUsuario.TabIndex = 7;
+            this.grpTipoUsuario.TabIndex = 0;
             this.grpTipoUsuario.TabStop = false;
             this.grpTipoUsuario.Text = "Tipo de Usuário";
             // 
@@ -231,10 +232,10 @@ namespace EspacoTP
             // 
             this.chkAtivo.AutoSize = true;
             this.chkAtivo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkAtivo.Location = new System.Drawing.Point(453, 87);
+            this.chkAtivo.Location = new System.Drawing.Point(474, 87);
             this.chkAtivo.Name = "chkAtivo";
             this.chkAtivo.Size = new System.Drawing.Size(50, 17);
-            this.chkAtivo.TabIndex = 6;
+            this.chkAtivo.TabIndex = 9;
             this.chkAtivo.Text = "Ativo";
             this.chkAtivo.UseVisualStyleBackColor = true;
             // 
@@ -242,39 +243,39 @@ namespace EspacoTP
             // 
             this.lbSenha.AutoSize = true;
             this.lbSenha.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbSenha.Location = new System.Drawing.Point(397, 71);
+            this.lbSenha.Location = new System.Drawing.Point(330, 71);
             this.lbSenha.Name = "lbSenha";
             this.lbSenha.Size = new System.Drawing.Size(38, 13);
-            this.lbSenha.TabIndex = 4;
+            this.lbSenha.TabIndex = 7;
             this.lbSenha.Text = "Senha";
             // 
             // txtSenha
             // 
-            this.txtSenha.Location = new System.Drawing.Point(397, 87);
+            this.txtSenha.Location = new System.Drawing.Point(330, 88);
             this.txtSenha.MaxLength = 8;
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.PasswordChar = '*';
-            this.txtSenha.Size = new System.Drawing.Size(50, 20);
-            this.txtSenha.TabIndex = 5;
+            this.txtSenha.Size = new System.Drawing.Size(117, 20);
+            this.txtSenha.TabIndex = 8;
             // 
             // lbUsuario
             // 
             this.lbUsuario.AutoSize = true;
             this.lbUsuario.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbUsuario.Location = new System.Drawing.Point(94, 71);
+            this.lbUsuario.Location = new System.Drawing.Point(13, 71);
             this.lbUsuario.Name = "lbUsuario";
             this.lbUsuario.Size = new System.Drawing.Size(43, 13);
-            this.lbUsuario.TabIndex = 2;
+            this.lbUsuario.TabIndex = 5;
             this.lbUsuario.Text = "Usuário";
             // 
             // txtUsuario
             // 
             this.txtUsuario.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtUsuario.Location = new System.Drawing.Point(94, 87);
+            this.txtUsuario.Location = new System.Drawing.Point(11, 88);
             this.txtUsuario.MaxLength = 20;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(297, 20);
-            this.txtUsuario.TabIndex = 3;
+            this.txtUsuario.TabIndex = 6;
             // 
             // txtCodigo
             // 
@@ -323,10 +324,10 @@ namespace EspacoTP
             this.colUsuario.DataPropertyName = "usuario";
             this.colUsuario.HeaderText = "USUÁRIO";
             this.colUsuario.MaxInputLength = 20;
-            this.colUsuario.MinimumWidth = 160;
+            this.colUsuario.MinimumWidth = 150;
             this.colUsuario.Name = "colUsuario";
             this.colUsuario.ReadOnly = true;
-            this.colUsuario.Width = 160;
+            this.colUsuario.Width = 150;
             // 
             // colSenha
             // 
@@ -364,10 +365,14 @@ namespace EspacoTP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(570, 519);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(570, 513);
             this.Controls.Add(this.grpDetalhes);
             this.Controls.Add(this.pnlBotoes);
             this.Controls.Add(this.grpUsuarios);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FrmUsuarios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ESPAÇO TP - USUÁRIOS";

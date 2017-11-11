@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmInstrutores));
             this.grpInstrutores = new System.Windows.Forms.GroupBox();
             this.grdInstrutores = new System.Windows.Forms.DataGridView();
             this.colId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -142,7 +143,7 @@
             // 
             // pnlBotoes
             // 
-            this.pnlBotoes.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.pnlBotoes.BackColor = System.Drawing.Color.MintCream;
             this.pnlBotoes.Controls.Add(this.btnAlterar);
             this.pnlBotoes.Controls.Add(this.btnIncluir);
             this.pnlBotoes.Controls.Add(this.btnSalvar);
@@ -155,7 +156,7 @@
             // btnAlterar
             // 
             this.btnAlterar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnAlterar.Location = new System.Drawing.Point(92, 12);
+            this.btnAlterar.Location = new System.Drawing.Point(99, 12);
             this.btnAlterar.Name = "btnAlterar";
             this.btnAlterar.Size = new System.Drawing.Size(75, 23);
             this.btnAlterar.TabIndex = 1;
@@ -166,7 +167,7 @@
             // btnIncluir
             // 
             this.btnIncluir.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnIncluir.Location = new System.Drawing.Point(11, 12);
+            this.btnIncluir.Location = new System.Drawing.Point(18, 12);
             this.btnIncluir.Name = "btnIncluir";
             this.btnIncluir.Size = new System.Drawing.Size(75, 23);
             this.btnIncluir.TabIndex = 0;
@@ -221,7 +222,7 @@
             this.lbCPF.Location = new System.Drawing.Point(8, 71);
             this.lbCPF.Name = "lbCPF";
             this.lbCPF.Size = new System.Drawing.Size(27, 13);
-            this.lbCPF.TabIndex = 6;
+            this.lbCPF.TabIndex = 7;
             this.lbCPF.Text = "CPF";
             // 
             // txtCPF
@@ -230,7 +231,7 @@
             this.txtCPF.MaxLength = 11;
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.Size = new System.Drawing.Size(296, 20);
-            this.txtCPF.TabIndex = 7;
+            this.txtCPF.TabIndex = 8;
             this.txtCPF.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCPF_KeyPress);
             // 
             // chkAtivo
@@ -240,7 +241,7 @@
             this.chkAtivo.Location = new System.Drawing.Point(313, 87);
             this.chkAtivo.Name = "chkAtivo";
             this.chkAtivo.Size = new System.Drawing.Size(50, 17);
-            this.chkAtivo.TabIndex = 8;
+            this.chkAtivo.TabIndex = 0;
             this.chkAtivo.Text = "Ativo";
             this.chkAtivo.UseVisualStyleBackColor = true;
             // 
@@ -251,7 +252,7 @@
             this.lbSobrenome.Location = new System.Drawing.Point(313, 27);
             this.lbSobrenome.Name = "lbSobrenome";
             this.lbSobrenome.Size = new System.Drawing.Size(61, 13);
-            this.lbSobrenome.TabIndex = 4;
+            this.lbSobrenome.TabIndex = 5;
             this.lbSobrenome.Text = "Sobrenome";
             // 
             // txtSobrenome
@@ -261,7 +262,7 @@
             this.txtSobrenome.MaxLength = 20;
             this.txtSobrenome.Name = "txtSobrenome";
             this.txtSobrenome.Size = new System.Drawing.Size(215, 20);
-            this.txtSobrenome.TabIndex = 5;
+            this.txtSobrenome.TabIndex = 6;
             // 
             // lbNome
             // 
@@ -270,7 +271,7 @@
             this.lbNome.Location = new System.Drawing.Point(93, 27);
             this.lbNome.Name = "lbNome";
             this.lbNome.Size = new System.Drawing.Size(35, 13);
-            this.lbNome.TabIndex = 2;
+            this.lbNome.TabIndex = 3;
             this.lbNome.Text = "Nome";
             // 
             // txtNome
@@ -280,7 +281,7 @@
             this.txtNome.MaxLength = 20;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(215, 20);
-            this.txtNome.TabIndex = 3;
+            this.txtNome.TabIndex = 4;
             // 
             // txtCodigo
             // 
@@ -305,10 +306,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(570, 457);
             this.Controls.Add(this.grpDetalhes);
             this.Controls.Add(this.pnlBotoes);
             this.Controls.Add(this.grpInstrutores);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FrmInstrutores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ESPAÇO TP - INSTRUTORES";

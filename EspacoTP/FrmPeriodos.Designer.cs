@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPeriodos));
             this.grpDetalhes = new System.Windows.Forms.GroupBox();
             this.chkAtivo = new System.Windows.Forms.CheckBox();
             this.lbHorario = new System.Windows.Forms.Label();
@@ -241,7 +242,7 @@
             // 
             // pnlBotoes
             // 
-            this.pnlBotoes.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.pnlBotoes.BackColor = System.Drawing.Color.MintCream;
             this.pnlBotoes.Controls.Add(this.btnAlterar);
             this.pnlBotoes.Controls.Add(this.btnIncluir);
             this.pnlBotoes.Controls.Add(this.btnSalvar);
@@ -305,6 +306,7 @@
             this.lbCodigoPeriodo.Size = new System.Drawing.Size(81, 13);
             this.lbCodigoPeriodo.TabIndex = 25;
             this.lbCodigoPeriodo.Text = "Código Período";
+            this.lbCodigoPeriodo.Visible = false;
             // 
             // txtCodigoPeriodo
             // 
@@ -314,6 +316,7 @@
             this.txtCodigoPeriodo.Name = "txtCodigoPeriodo";
             this.txtCodigoPeriodo.Size = new System.Drawing.Size(137, 20);
             this.txtCodigoPeriodo.TabIndex = 26;
+            this.txtCodigoPeriodo.Visible = false;
             // 
             // dtpDataTerminoContrato
             // 
@@ -325,6 +328,7 @@
             this.dtpDataTerminoContrato.Name = "dtpDataTerminoContrato";
             this.dtpDataTerminoContrato.Size = new System.Drawing.Size(106, 20);
             this.dtpDataTerminoContrato.TabIndex = 24;
+            this.dtpDataTerminoContrato.Visible = false;
             // 
             // lbDataTerminoContrato
             // 
@@ -335,6 +339,7 @@
             this.lbDataTerminoContrato.Size = new System.Drawing.Size(23, 13);
             this.lbDataTerminoContrato.TabIndex = 23;
             this.lbDataTerminoContrato.Text = "Até";
+            this.lbDataTerminoContrato.Visible = false;
             // 
             // dtpDataInicioContrato
             // 
@@ -346,6 +351,7 @@
             this.dtpDataInicioContrato.Name = "dtpDataInicioContrato";
             this.dtpDataInicioContrato.Size = new System.Drawing.Size(106, 20);
             this.dtpDataInicioContrato.TabIndex = 22;
+            this.dtpDataInicioContrato.Visible = false;
             // 
             // lbDataInicioContrato
             // 
@@ -356,12 +362,14 @@
             this.lbDataInicioContrato.Size = new System.Drawing.Size(21, 13);
             this.lbDataInicioContrato.TabIndex = 21;
             this.lbDataInicioContrato.Text = "De";
+            this.lbDataInicioContrato.Visible = false;
             // 
             // FrmPeriodos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(570, 519);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(570, 465);
             this.Controls.Add(this.lbCodigoPeriodo);
             this.Controls.Add(this.txtCodigoPeriodo);
             this.Controls.Add(this.dtpDataTerminoContrato);
@@ -371,6 +379,9 @@
             this.Controls.Add(this.pnlBotoes);
             this.Controls.Add(this.grpPeriodos);
             this.Controls.Add(this.grpDetalhes);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FrmPeriodos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ESPAÇO TP - PERÍODOS";

@@ -30,6 +30,7 @@ namespace EspacoTP
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPainel));
             this.mnuPrincipal = new System.Windows.Forms.MenuStrip();
             this.mniAgenda = new System.Windows.Forms.ToolStripMenuItem();
             this.mniAlunos = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,6 +41,7 @@ namespace EspacoTP
             // 
             // mnuPrincipal
             // 
+            this.mnuPrincipal.BackColor = System.Drawing.Color.MintCream;
             this.mnuPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mniAgenda,
             this.mniAlunos,
@@ -54,28 +56,28 @@ namespace EspacoTP
             // mniAgenda
             // 
             this.mniAgenda.Name = "mniAgenda";
-            this.mniAgenda.Size = new System.Drawing.Size(56, 20);
+            this.mniAgenda.Size = new System.Drawing.Size(60, 20);
             this.mniAgenda.Text = "&Agenda";
             this.mniAgenda.Click += new System.EventHandler(this.mniAgenda_Click);
             // 
             // mniAlunos
             // 
             this.mniAlunos.Name = "mniAlunos";
-            this.mniAlunos.Size = new System.Drawing.Size(51, 20);
+            this.mniAlunos.Size = new System.Drawing.Size(56, 20);
             this.mniAlunos.Text = "A&lunos";
             this.mniAlunos.Click += new System.EventHandler(this.mniAlunos_Click);
             // 
             // mniInstrutores
             // 
             this.mniInstrutores.Name = "mniInstrutores";
-            this.mniInstrutores.Size = new System.Drawing.Size(73, 20);
+            this.mniInstrutores.Size = new System.Drawing.Size(75, 20);
             this.mniInstrutores.Text = "&Instrutores";
             this.mniInstrutores.Click += new System.EventHandler(this.mniInstrutores_Click);
             // 
             // mniUsuarios
             // 
             this.mniUsuarios.Name = "mniUsuarios";
-            this.mniUsuarios.Size = new System.Drawing.Size(60, 20);
+            this.mniUsuarios.Size = new System.Drawing.Size(64, 20);
             this.mniUsuarios.Text = "&Usuários";
             this.mniUsuarios.Click += new System.EventHandler(this.mniUsuarios_Click);
             // 
@@ -83,13 +85,19 @@ namespace EspacoTP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(926, 415);
             this.Controls.Add(this.mnuPrincipal);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnuPrincipal;
             this.Name = "FrmPainel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ESPAÇO TP - PAINEL";
+            this.Text = "ESPAÇO TP - PAINEL PRINCIPAL";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmPainel_Load);
             this.mnuPrincipal.ResumeLayout(false);
             this.mnuPrincipal.PerformLayout();
             this.ResumeLayout(false);

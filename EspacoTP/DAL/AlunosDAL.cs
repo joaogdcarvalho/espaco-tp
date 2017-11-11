@@ -53,13 +53,15 @@ namespace EspacoTP.DAL
                                         al.IdTipoTelefone = Convert.ToInt32(rd["id_tipo_telefone"]);
                                         al.NumeroTelefone = rd["numero_telefone"].ToString().Trim();
                                         al.Email = rd["email"].ToString().Trim();
-                                        al.DataInicioContrato = Convert.ToDateTime(rd["data_inicio_contrato"]);
+                                        al.DataInicioContrato = Convert.ToDateTime(rd["data_inicio_contrato"].ToString().Trim());
                                         al.DataTerminoContrato = Convert.ToDateTime(rd["data_termino_contrato"].ToString().Trim());
+                                        al.DataTerminoContratoAnterior = Convert.ToDateTime(rd["data_termino_anterior"].ToString().Trim());
                                         al.Cep = rd["cep"].ToString().Trim();
                                         al.Logradouro = rd["logradouro"].ToString().Trim();
                                         al.NumeroResidencial = rd["numero_residencial"].ToString().Trim();
                                         al.Bairro = rd["bairro"].ToString().Trim();
                                         al.Municipio = rd["municipio"].ToString().Trim();
+                                        
                                     }
                                     pbooRetorno = true;
                                 }

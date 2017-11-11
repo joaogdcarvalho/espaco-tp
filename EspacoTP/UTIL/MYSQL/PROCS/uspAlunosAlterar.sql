@@ -14,7 +14,7 @@ IN pStrNumeroTelefone VARCHAR(15),
 IN pStrEmail VARCHAR(60),
 IN pDtDataInicioContrato DATE,
 IN pDtDataTerminoContrato DATE,
-IN pNumCep INT(8),
+IN pNumCep VARCHAR(9),
 IN pStrLogradouro VARCHAR(120),
 IN pNumNumero INT(6),
 IN pStrBairro VARCHAR(30),
@@ -24,6 +24,16 @@ IN pMoeValorAula DECIMAL(9, 2)
 )
 
 BEGIN
+DECLARE varDataTerminoContratoAnterior DATE;
+
+	SELECT
+		data_termino_contrato
+	INTO
+		varDataTerminoContratoAnterior
+	FROM
+		alunos
+	WHERE
+		id_aluno = pNumIdAluno;        
         
 	UPDATE alunos
     SET
@@ -36,6 +46,7 @@ BEGIN
         email = pStrEmail,
         data_inicio_contrato = pDtDataInicioContrato,
         data_termino_contrato = pDtDataTerminoContrato,
+        data_termino_contrato_anterior = varDataTerminoContratoAnterior,
         cep = pNumCep,
         logradouro = pStrLogradouro,
         

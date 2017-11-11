@@ -82,7 +82,7 @@ namespace EspacoTP.UTIL
             return pstrCPF.EndsWith(digito);
         }
 
-        public static bool ValidarDatasTrocadas(DateTime pdtDataInicial, DateTime pdtDataFinal)
+        public static bool ValidarDatasContrato(DateTime pdtDataInicial, DateTime pdtDataFinal)
         {
             bool booResultado = false;
 
@@ -92,8 +92,6 @@ namespace EspacoTP.UTIL
             }
 
             return booResultado;
-        }
-
-        
+        }     
     }
 }

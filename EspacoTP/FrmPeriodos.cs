@@ -123,13 +123,14 @@ namespace EspacoTP
                         strMensagemValidacao = strMensagemValidacao + "\n - PERÍODO já cadastrado.";
                     }
                 }
-                
 
-                if (!PeriodosBLL.ValidarDiaRepetido(out strMensagem, out booRetorno, numCodigoAluno, numIdDiaPeriodo, numIdHorarioPeriodo))
-                {
-                    strMensagemValidacao = strMensagemValidacao + "\n - ALUNO possui PERÍODO ativo para esse dia. "; // + strHorarioAgendamento + ".";
-                }
+                if (chkAtivo.Checked)
+                    if (!PeriodosBLL.ValidarDiaRepetido(out strMensagem, out booRetorno, numCodigoAluno, numIdDiaPeriodo, numIdHorarioPeriodo))
+                    {
+                        strMensagemValidacao = strMensagemValidacao + "\n - ALUNO possui PERÍODO ativo para esse dia. "; // + strHorarioAgendamento + ".";
+                    }
             }
+
 
             if ((!string.IsNullOrEmpty(strMensagemValidacao) || (strMensagemValidacao != "")))
             {
@@ -164,7 +165,11 @@ namespace EspacoTP
 
             if (booInclusao)
             {
-                AgendamentosBLL.IncluirAgendamentoFlexivel(out strMensagem, out booRetorno, per.IdAluno, dtpDataInicioContrato.Value, dtpDataTerminoContrato.Value, Convert.ToInt32(cboDia.SelectedIndex), per.IdHoraAgendamento);
+                AgendamentosBLL.IncluirAgendamentoFlexivel(out strMensagem, out booRetorno, per.IdAluno, dtpDataInicioContrato.Value, dtpDataTerminoContrato.Value, Convert.ToInt32(cboDia.SelectedIndex), per.IdHoraAgendamento, per.Ativo);
+            }
+            else
+            {
+                AgendamentosBLL.AlterarAgendamentoFlexivel(out strMensagem, out booRetorno, per.IdAluno, dtpDataTerminoContrato.Value, Convert.ToInt32(cboDia.SelectedIndex), per.IdHoraAgendamento, per.Ativo);
             }
 
             Cursor.Current = Cursors.Default;
@@ -275,7 +280,7 @@ namespace EspacoTP
 
                     HabilitarObjetos();
                 }
-            }            
+            }
         }
 
         private void FrmPeriodos_FormClosing(object sender, FormClosingEventArgs e)

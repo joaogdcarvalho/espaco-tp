@@ -39,6 +39,6 @@ C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.pdb
 C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.FrmFrequencia.resources
 C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.FrmAgendamentos.resources
 C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.FrmPeriodos.resources
-C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.csprojResolveAssemblyReference.cache
 C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.FrmPagamentosCadastro.resources
 C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.FrmPagamentosConsulta.resources
+C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Debug\EspacoTP.csprojResolveAssemblyReference.cache

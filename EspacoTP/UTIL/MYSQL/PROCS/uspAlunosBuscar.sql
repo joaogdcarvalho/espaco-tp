@@ -36,6 +36,7 @@ BEGIN
 		THEN SET varStrWhere = CONCAT( varStrWhere, "AND a.cpf = ", pStrCpf );
 		END IF;
         
+        /*
         IF (IFNULL( LENGTH(pDtDataInicioContrato), 0 ) > 0 )
 		THEN SET varStrWhere = CONCAT( varStrWhere, " AND a.data_inicio_contrato >= '",  pDtDataInicioContrato, "'" );
 		END IF;
@@ -43,40 +44,40 @@ BEGIN
 		IF (IFNULL( LENGTH(pDtDataTerminoContrato), 0 ) > 0 )
 		THEN SET varStrWhere = CONCAT( varStrWhere, " AND a.data_termino_contrato <= '", pDtDataTerminoContrato, "'" );
 		END IF;
-        
+        */
     END IF;
     
     SET @QUERY = CONCAT("    
 	
 	SELECT
-		a.id_aluno				as 'id',
-		a.nome 					as 'nome',
-		a.sobrenome 			as 'sobrenome',
-        a.cpf 					as 'cpf',
-        t.descricao 			as 'tipo_telefone',
+		a.id_aluno							as 'id',
+		a.nome 								as 'nome',
+		a.sobrenome 						as 'sobrenome',
+        a.cpf 								as 'cpf',
+        t.descricao 						as 'tipo_telefone',
         
-        a.numero_telefone 		as 'numero_telefone',
-        a.email 				as 'email',
-        a.data_inicio_contrato 	as 'data_inicio_contrato',
-        a.data_termino_contrato as 'data_termino_contrato',
-        a.cep 					as 'cep',
+        a.numero_telefone 					as 'numero_telefone',
+        a.email 							as 'email',
+        a.data_inicio_contrato 				as 'data_inicio_contrato',
+        a.data_termino_contrato 			as 'data_termino_contrato',
+        a.cep								as 'cep',
         
-        a.logradouro 			as 'logradouro',
-        a.numero_residencial	as 'numero_residencial',
-        a.bairro 				as 'bairro',
-        a.estado 				as 'estado',
-        a.municipio 			as 'municipio',
+        a.logradouro 						as 'logradouro',
+        a.numero_residencial				as 'numero_residencial',
+        a.bairro 							as 'bairro',
+        a.estado 							as 'estado',
+        a.municipio 						as 'municipio',
         
-        a.valor_aula 			as 'valor_aula'
+        a.valor_aula 						as 'valor_aula'
 	FROM 
 		alunos a
         
         JOIN	tipos_telefone t
-        ON		t.id_tipo_telefone = a.id_tipo_telefone
+        ON		t.id_tipo_telefone = a.id_tipo_telefone)
         
 	WHERE
 		1 = 1
-		", varStrWhere );
+		", "" );
         
 PREPARE stmt FROM @QUERY;
 EXECUTE stmt;

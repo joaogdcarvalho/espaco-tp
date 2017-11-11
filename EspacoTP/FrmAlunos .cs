@@ -3,7 +3,6 @@ using EspacoTP.MODEL;
 using EspacoTP.UTIL;
 using System;
 using System.Windows.Forms;
-using Correios.CorreiosServiceReference;
 using Correios;
 
 namespace EspacoTP
@@ -45,7 +44,6 @@ namespace EspacoTP
                 txtCPF.Enabled = true;
                 txtNumeroTelefone.Enabled = true;
                 txtEmail.Enabled = true;
-                dtpDataInicioContrato.Enabled = true;
                 dtpDataTerminoContrato.Enabled = true;
 
                 btnProximo.Enabled = false;
@@ -71,7 +69,6 @@ namespace EspacoTP
                 txtBairro.Enabled = true;
                 txtMunicipio.Enabled = true;
 
-                btnBuscarCEP.Enabled = true;
                 btnBuscarAlunos.Enabled = false;
                 btnIncluir.Enabled = false;
                 btnDesfazer.Enabled = true;
@@ -84,7 +81,6 @@ namespace EspacoTP
                 txtCPF.Enabled = false;
                 txtNumeroTelefone.Enabled = false;
                 txtEmail.Enabled = false;
-                dtpDataInicioContrato.Enabled = false;
                 dtpDataTerminoContrato.Enabled = false;
 
                 cboTipoTelefone.Enabled = false;
@@ -107,13 +103,12 @@ namespace EspacoTP
                     btnFrequencia.Enabled = true;
                 }
 
-                btnBuscarCEP.Enabled = false;
                 txtCEP.Enabled = false;
                 txtLogradouro.Enabled = false;
                 txtNumeroResidencia.Enabled = false;
                 txtBairro.Enabled = false;
                 txtMunicipio.Enabled = false;
-                
+
                 btnBuscarAlunos.Enabled = true;
                 btnIncluir.Enabled = true;
                 btnDesfazer.Enabled = false;
@@ -133,6 +128,7 @@ namespace EspacoTP
             txtEmail.Text = "";
             dtpDataInicioContrato.Value = DateTime.Now;
             dtpDataTerminoContrato.Value = DateTime.Now;
+            dtpDataTerminoContratoAnterior.Value = DateTime.Now;
             txtCEP.Text = "";
             txtLogradouro.Text = "";
 
@@ -160,6 +156,7 @@ namespace EspacoTP
 
                 dtpDataInicioContrato.Value = alu.DataInicioContrato;
                 dtpDataTerminoContrato.Value = alu.DataTerminoContrato;
+                dtpDataTerminoContratoAnterior.Value = alu.DataTerminoContratoAnterior;
                 txtCEP.Text = alu.Cep;
                 txtLogradouro.Text = alu.Logradouro;
                 txtNumeroResidencia.Text = alu.NumeroResidencial.ToString();
@@ -214,9 +211,9 @@ namespace EspacoTP
                 }
             }
 
-            if (!Validacoes.ValidarDatasTrocadas(dtpDataInicioContrato.Value, dtpDataTerminoContrato.Value))
+            if (!Validacoes.ValidarDatasContrato(dtpDataInicioContrato.Value, dtpDataTerminoContrato.Value))
             {
-                strMensagemValidacao = strMensagemValidacao + "\n - Campo DATA TÉRMINO não pode ser inferior a DATA INICIAL de vigência de contrato.";
+                strMensagemValidacao = strMensagemValidacao + "\n - Campo DATA TÉRMINO não pode ser inferior ou igual a DATA INICIAL de vigência de contrato.";
             }
 
             if ((!string.IsNullOrEmpty(strMensagemValidacao) || (strMensagemValidacao != "")))
@@ -254,11 +251,11 @@ namespace EspacoTP
             alu.Email = txtEmail.Text.Trim();
             alu.DataInicioContrato = dtpDataInicioContrato.Value;
             alu.DataTerminoContrato = dtpDataTerminoContrato.Value;
+            alu.DataTerminoContratoAnterior = dtpDataTerminoContratoAnterior.Value;
             if (!string.IsNullOrEmpty(txtCEP.Text.Trim()))
             {
                 alu.Cep = txtCEP.Text.Trim();
             }
-
 
             alu.Logradouro = txtLogradouro.Text.Trim();
             if (!string.IsNullOrEmpty(txtNumeroResidencia.Text.Trim()))
@@ -272,6 +269,8 @@ namespace EspacoTP
             alu.ValorAula = 14.95M;
 
             AlunosBLL.TratarEfetivacao(out strMensagem, out booRetorno, booInclusao, alu);
+
+            AgendamentosBLL.TratarAgendamentoFlexivelContrato(out strMensagem, out booRetorno, alu.IdAluno, alu.DataTerminoContrato, alu.DataTerminoContratoAnterior);
 
             Cursor.Current = Cursors.Default;
 
@@ -539,11 +538,9 @@ namespace EspacoTP
             }
         }
 
-        #endregion
-
         private void txtCEP_TextChanged(object sender, EventArgs e)
         {
-            if (txtCEP.Text.Trim().Length < 8)
+            if (txtCEP.Text.Trim().Length < 9)
             {
                 txtLogradouro.Text = "";
                 txtBairro.Text = "";
@@ -553,14 +550,43 @@ namespace EspacoTP
             }
             else
             {
-                var Servico = new CorreiosApi();
-                var Dados = Servico.consultaCEP(txtCEP.Text);
+                try
+                {
+                    Cursor.Current = Cursors.WaitCursor;
 
-                txtLogradouro.Text = Dados.end;
-                txtBairro.Text = Dados.bairro;
-                txtMunicipio.Text = Dados.cidade;
-                cboEstado.Text = Dados.uf;
+                    var Servico = new CorreiosApi();
+                    var Dados = Servico.consultaCEP(txtCEP.Text.PadLeft(8, '0'));
+
+                    txtLogradouro.Text = Dados.end;
+                    txtBairro.Text = Dados.bairro;
+                    txtMunicipio.Text = Dados.cidade;
+                    cboEstado.Text = Dados.uf;
+
+                    Cursor.Current = Cursors.Default;
+                }
+                catch (Exception ex)
+                {
+                    string strMsgErro = ex.Message;
+
+                    if (strMsgErro == "CEP NAO ENCONTRADO")
+                    {
+                        strMsgErro = "\n - CEP não encontrado.";
+                    }
+
+                    MessageBox.Show(
+                    strMsgErro,
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+                }
             }
         }
+
+        private void txtCEP_Leave(object sender, EventArgs e)
+        {
+            txtCEP_TextChanged(sender, e);
+        }
+
+        #endregion
     }
 }

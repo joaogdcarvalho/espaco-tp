@@ -6,6 +6,8 @@ C:\Users\Administrador\Documents\EspacoTP\EspacoTP\bin\Release\MySql.Data.dll
 C:\Users\Administrador\Documents\EspacoTP\EspacoTP\bin\Release\Correios.pdb
 C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Release\EspacoTP.FrmAgendamentos.resources
 C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Release\EspacoTP.FrmFrequencia.resources
+C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Release\EspacoTP.FrmPagamentosCadastro.resources
+C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Release\EspacoTP.FrmPagamentosConsulta.resources
 C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Release\EspacoTP.FrmPeriodos.resources
 C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Release\EspacoTP.FrmAlunosConsulta.resources
 C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Release\EspacoTP.FrmAgenda.resources
@@ -19,6 +21,3 @@ C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Release\EspacoTP.csproj.G
 C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Release\EspacoTP.csproj.CoreCompileInputs.cache
 C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Release\EspacoTP.exe
 C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Release\EspacoTP.pdb
-C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Release\EspacoTP.FrmPagamentosCadastro.resources
-C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Release\EspacoTP.FrmPagamentosConsulta.resources
-C:\Users\Administrador\Documents\EspacoTP\EspacoTP\obj\Release\EspacoTP.csprojResolveAssemblyReference.cache

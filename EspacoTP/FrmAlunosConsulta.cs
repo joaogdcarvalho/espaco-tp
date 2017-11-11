@@ -1,5 +1,6 @@
 ﻿using EspacoTP.BLL;
 using EspacoTP.MODEL;
+using EspacoTP.UTIL;
 using System;
 using System.Windows.Forms;
 
@@ -50,7 +51,7 @@ namespace EspacoTP
             {
                 alu.Nome = txtNomeAluno.Text.Trim();
             }
-            
+
             if (txtSobrenomeAluno.Text.Trim() != "")
             {
                 alu.Sobrenome = txtSobrenomeAluno.Text.Trim();
@@ -78,11 +79,11 @@ namespace EspacoTP
             btnSelecionarAluno.Enabled = (ContarRegistros() > 0);
         }
 
-        
+
         public void MontarDetalhe()
         {
             numIdAluno = Convert.ToInt32(grdConsultaAlunos.Rows[grdConsultaAlunos.CurrentRow.Index].Cells["colId"].Value);
-        }        
+        }
 
         public void HabilitarFiltros(bool booOperacao)
         {
@@ -93,6 +94,31 @@ namespace EspacoTP
             txtCPF.Enabled = booOperacao;
             dtpDataInicioContrato.Enabled = booOperacao;
             dtpDataTerminoContrato.Enabled = booOperacao;
+        }
+
+        public bool ValidarBusca()
+        {
+            /*string strMensagemValidacao = "";
+
+            if ((txtCodigo.Text.Trim() == "") && (txtCPF.Text.Trim() != ""))
+            {
+                if (!Validacoes.ValidarCPF(txtCPF.Text.Trim()))
+                {
+                    strMensagemValidacao = "\n - CPF inválido.";
+                }
+            }
+
+            if ((!string.IsNullOrEmpty(strMensagemValidacao) || (strMensagemValidacao != "")))
+            {
+                MessageBox.Show(
+                strMensagemValidacao,
+                "Aviso",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Exclamation);
+                return false;
+            }*/
+
+            return true;
         }
 
         #endregion
@@ -120,8 +146,8 @@ namespace EspacoTP
             LimparCampos();
             HabilitarFiltros(true);
 
-            MontarGrid();            
-            
+            MontarGrid();
+
             btnBuscar.Enabled = true;
             HabilitarBtnSelecionarAluno();
         }
@@ -134,6 +160,11 @@ namespace EspacoTP
 
             btnBuscar.Enabled = false;
             HabilitarBtnSelecionarAluno();
+            /*
+            if (ValidarBusca())
+            {
+                
+            }*/
         }
 
         private void grdConsultaAlunos_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -158,6 +189,14 @@ namespace EspacoTP
             if (!booSelecao)
             {
                 numIdAluno = 0;
+            }
+        }
+
+        private void txtCPF_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != 08)
+            {
+                e.Handled = true;
             }
         }
 

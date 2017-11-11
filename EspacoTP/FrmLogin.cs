@@ -50,7 +50,7 @@ namespace EspacoTP
         private void ApresentarMensagemValidacao()
         {
             MessageBox.Show(
-                String.Concat("Usuário e/ou Senha Inválido(s).\n\n", "Entre com o Usuário e/ou Senha correto(s)."),
+                String.Concat("USUÁRIO E/OU SENHA INVÁLIDOS."),
                 "Aviso",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Exclamation);
@@ -87,6 +87,9 @@ namespace EspacoTP
                     FrmPainel Pai = new FrmPainel(booUsuarioAdmin);
                     Pai.Closed += (s, args) => this.Close();
                     Pai.Show();
+
+                    FrmAgenda Age = new FrmAgenda();
+                    Age.Show();
                 }
                 else
                 {
@@ -98,5 +101,9 @@ namespace EspacoTP
             }
         }
         #endregion
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+        }
     }
 }

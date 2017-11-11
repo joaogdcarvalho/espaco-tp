@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAgenda));
             this.grpConsultaAgendamentos = new System.Windows.Forms.GroupBox();
             this.dtpData = new System.Windows.Forms.DateTimePicker();
             this.lbData = new System.Windows.Forms.Label();
@@ -83,48 +84,49 @@
             // 
             // dtpData
             // 
-            this.dtpData.Location = new System.Drawing.Point(6, 43);
+            this.dtpData.Location = new System.Drawing.Point(43, 54);
             this.dtpData.MaxDate = new System.DateTime(2120, 12, 31, 0, 0, 0, 0);
             this.dtpData.MinDate = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
             this.dtpData.Name = "dtpData";
             this.dtpData.Size = new System.Drawing.Size(223, 20);
-            this.dtpData.TabIndex = 7;
+            this.dtpData.TabIndex = 1;
             this.dtpData.Value = new System.DateTime(2017, 10, 25, 0, 0, 0, 0);
             // 
             // lbData
             // 
             this.lbData.AutoSize = true;
-            this.lbData.Location = new System.Drawing.Point(6, 27);
+            this.lbData.Location = new System.Drawing.Point(43, 33);
             this.lbData.Name = "lbData";
             this.lbData.Size = new System.Drawing.Size(30, 13);
-            this.lbData.TabIndex = 6;
+            this.lbData.TabIndex = 0;
             this.lbData.Text = "Data";
             // 
             // pnlBotoesFiltro
             // 
-            this.pnlBotoesFiltro.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.pnlBotoesFiltro.BackColor = System.Drawing.Color.MintCream;
             this.pnlBotoesFiltro.Controls.Add(this.btnImprimirCronograma);
             this.pnlBotoesFiltro.Controls.Add(this.btnBuscar);
             this.pnlBotoesFiltro.Controls.Add(this.btnLimpar);
-            this.pnlBotoesFiltro.Location = new System.Drawing.Point(241, 27);
+            this.pnlBotoesFiltro.Location = new System.Drawing.Point(351, 27);
             this.pnlBotoesFiltro.Name = "pnlBotoesFiltro";
-            this.pnlBotoesFiltro.Size = new System.Drawing.Size(287, 47);
-            this.pnlBotoesFiltro.TabIndex = 8;
+            this.pnlBotoesFiltro.Size = new System.Drawing.Size(177, 47);
+            this.pnlBotoesFiltro.TabIndex = 2;
             // 
             // btnImprimirCronograma
             // 
             this.btnImprimirCronograma.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnImprimirCronograma.Location = new System.Drawing.Point(168, 12);
+            this.btnImprimirCronograma.Location = new System.Drawing.Point(83, 38);
             this.btnImprimirCronograma.Name = "btnImprimirCronograma";
             this.btnImprimirCronograma.Size = new System.Drawing.Size(111, 23);
-            this.btnImprimirCronograma.TabIndex = 9;
+            this.btnImprimirCronograma.TabIndex = 2;
             this.btnImprimirCronograma.Text = "Im&primir Cronograma";
             this.btnImprimirCronograma.UseVisualStyleBackColor = true;
+            this.btnImprimirCronograma.Visible = false;
             // 
             // btnBuscar
             // 
             this.btnBuscar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnBuscar.Location = new System.Drawing.Point(87, 12);
+            this.btnBuscar.Location = new System.Drawing.Point(90, 12);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 1;
@@ -135,7 +137,7 @@
             // btnLimpar
             // 
             this.btnLimpar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnLimpar.Location = new System.Drawing.Point(7, 12);
+            this.btnLimpar.Location = new System.Drawing.Point(10, 12);
             this.btnLimpar.Name = "btnLimpar";
             this.btnLimpar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpar.TabIndex = 0;
@@ -145,14 +147,15 @@
             // 
             // BtnHora1
             // 
+            this.BtnHora1.BackColor = System.Drawing.Color.MintCream;
             this.BtnHora1.Enabled = false;
             this.BtnHora1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnHora1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnHora1.Location = new System.Drawing.Point(44, 51);
             this.BtnHora1.Name = "BtnHora1";
             this.BtnHora1.Size = new System.Drawing.Size(60, 60);
-            this.BtnHora1.TabIndex = 5;
-            this.BtnHora1.UseVisualStyleBackColor = true;
+            this.BtnHora1.TabIndex = 1;
+            this.BtnHora1.UseVisualStyleBackColor = false;
             this.BtnHora1.Click += new System.EventHandler(this.BtnHora1_Click);
             // 
             // lbHora1
@@ -161,7 +164,7 @@
             this.lbHora1.Location = new System.Drawing.Point(55, 36);
             this.lbHora1.Name = "lbHora1";
             this.lbHora1.Size = new System.Drawing.Size(37, 13);
-            this.lbHora1.TabIndex = 9;
+            this.lbHora1.TabIndex = 0;
             this.lbHora1.Text = "07h00";
             // 
             // groupBox1
@@ -197,19 +200,20 @@
             this.groupBox1.Location = new System.Drawing.Point(13, 116);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(546, 246);
-            this.groupBox1.TabIndex = 9;
+            this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Quantidade de Agendamentos";
             // 
             // BtnHora14
             // 
+            this.BtnHora14.BackColor = System.Drawing.Color.MintCream;
             this.BtnHora14.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnHora14.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnHora14.Location = new System.Drawing.Point(441, 139);
             this.BtnHora14.Name = "BtnHora14";
             this.BtnHora14.Size = new System.Drawing.Size(60, 60);
-            this.BtnHora14.TabIndex = 34;
-            this.BtnHora14.UseVisualStyleBackColor = true;
+            this.BtnHora14.TabIndex = 27;
+            this.BtnHora14.UseVisualStyleBackColor = false;
             this.BtnHora14.Click += new System.EventHandler(this.BtnHora14_Click);
             // 
             // lbHora14
@@ -218,18 +222,19 @@
             this.lbHora14.Location = new System.Drawing.Point(452, 124);
             this.lbHora14.Name = "lbHora14";
             this.lbHora14.Size = new System.Drawing.Size(37, 13);
-            this.lbHora14.TabIndex = 35;
+            this.lbHora14.TabIndex = 26;
             this.lbHora14.Text = "20h00";
             // 
             // BtnHora13
             // 
+            this.BtnHora13.BackColor = System.Drawing.Color.MintCream;
             this.BtnHora13.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnHora13.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnHora13.Location = new System.Drawing.Point(375, 139);
             this.BtnHora13.Name = "BtnHora13";
             this.BtnHora13.Size = new System.Drawing.Size(60, 60);
-            this.BtnHora13.TabIndex = 32;
-            this.BtnHora13.UseVisualStyleBackColor = true;
+            this.BtnHora13.TabIndex = 25;
+            this.BtnHora13.UseVisualStyleBackColor = false;
             this.BtnHora13.Click += new System.EventHandler(this.BtnHora13_Click);
             // 
             // lbHora13
@@ -238,18 +243,19 @@
             this.lbHora13.Location = new System.Drawing.Point(386, 124);
             this.lbHora13.Name = "lbHora13";
             this.lbHora13.Size = new System.Drawing.Size(37, 13);
-            this.lbHora13.TabIndex = 33;
+            this.lbHora13.TabIndex = 24;
             this.lbHora13.Text = "19h00";
             // 
             // BtnHora12
             // 
+            this.BtnHora12.BackColor = System.Drawing.Color.MintCream;
             this.BtnHora12.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnHora12.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnHora12.Location = new System.Drawing.Point(309, 139);
             this.BtnHora12.Name = "BtnHora12";
             this.BtnHora12.Size = new System.Drawing.Size(60, 60);
-            this.BtnHora12.TabIndex = 30;
-            this.BtnHora12.UseVisualStyleBackColor = true;
+            this.BtnHora12.TabIndex = 23;
+            this.BtnHora12.UseVisualStyleBackColor = false;
             this.BtnHora12.Click += new System.EventHandler(this.BtnHora12_Click);
             // 
             // lbHora12
@@ -258,18 +264,19 @@
             this.lbHora12.Location = new System.Drawing.Point(320, 124);
             this.lbHora12.Name = "lbHora12";
             this.lbHora12.Size = new System.Drawing.Size(37, 13);
-            this.lbHora12.TabIndex = 31;
+            this.lbHora12.TabIndex = 22;
             this.lbHora12.Text = "18h00";
             // 
             // BtnHora11
             // 
+            this.BtnHora11.BackColor = System.Drawing.Color.MintCream;
             this.BtnHora11.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnHora11.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnHora11.Location = new System.Drawing.Point(244, 139);
             this.BtnHora11.Name = "BtnHora11";
             this.BtnHora11.Size = new System.Drawing.Size(60, 60);
-            this.BtnHora11.TabIndex = 28;
-            this.BtnHora11.UseVisualStyleBackColor = true;
+            this.BtnHora11.TabIndex = 21;
+            this.BtnHora11.UseVisualStyleBackColor = false;
             this.BtnHora11.Click += new System.EventHandler(this.BtnHora11_Click);
             // 
             // lbHora11
@@ -278,18 +285,19 @@
             this.lbHora11.Location = new System.Drawing.Point(255, 124);
             this.lbHora11.Name = "lbHora11";
             this.lbHora11.Size = new System.Drawing.Size(37, 13);
-            this.lbHora11.TabIndex = 29;
+            this.lbHora11.TabIndex = 20;
             this.lbHora11.Text = "17h00";
             // 
             // BtnHora10
             // 
+            this.BtnHora10.BackColor = System.Drawing.Color.MintCream;
             this.BtnHora10.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnHora10.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnHora10.Location = new System.Drawing.Point(178, 139);
             this.BtnHora10.Name = "BtnHora10";
             this.BtnHora10.Size = new System.Drawing.Size(60, 60);
-            this.BtnHora10.TabIndex = 26;
-            this.BtnHora10.UseVisualStyleBackColor = true;
+            this.BtnHora10.TabIndex = 19;
+            this.BtnHora10.UseVisualStyleBackColor = false;
             this.BtnHora10.Click += new System.EventHandler(this.BtnHora10_Click);
             // 
             // lbHora10
@@ -298,18 +306,19 @@
             this.lbHora10.Location = new System.Drawing.Point(189, 124);
             this.lbHora10.Name = "lbHora10";
             this.lbHora10.Size = new System.Drawing.Size(37, 13);
-            this.lbHora10.TabIndex = 27;
+            this.lbHora10.TabIndex = 18;
             this.lbHora10.Text = "16h00";
             // 
             // BtnHora9
             // 
+            this.BtnHora9.BackColor = System.Drawing.Color.MintCream;
             this.BtnHora9.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnHora9.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnHora9.Location = new System.Drawing.Point(112, 139);
             this.BtnHora9.Name = "BtnHora9";
             this.BtnHora9.Size = new System.Drawing.Size(60, 60);
-            this.BtnHora9.TabIndex = 24;
-            this.BtnHora9.UseVisualStyleBackColor = true;
+            this.BtnHora9.TabIndex = 17;
+            this.BtnHora9.UseVisualStyleBackColor = false;
             this.BtnHora9.Click += new System.EventHandler(this.BtnHora9_Click);
             // 
             // lbHora9
@@ -318,18 +327,19 @@
             this.lbHora9.Location = new System.Drawing.Point(123, 124);
             this.lbHora9.Name = "lbHora9";
             this.lbHora9.Size = new System.Drawing.Size(37, 13);
-            this.lbHora9.TabIndex = 25;
+            this.lbHora9.TabIndex = 16;
             this.lbHora9.Text = "15h00";
             // 
             // BtnHora8
             // 
+            this.BtnHora8.BackColor = System.Drawing.Color.MintCream;
             this.BtnHora8.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnHora8.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnHora8.Location = new System.Drawing.Point(46, 139);
             this.BtnHora8.Name = "BtnHora8";
             this.BtnHora8.Size = new System.Drawing.Size(60, 60);
-            this.BtnHora8.TabIndex = 22;
-            this.BtnHora8.UseVisualStyleBackColor = true;
+            this.BtnHora8.TabIndex = 15;
+            this.BtnHora8.UseVisualStyleBackColor = false;
             this.BtnHora8.Click += new System.EventHandler(this.BtnHora8_Click);
             // 
             // lbHora8
@@ -338,18 +348,19 @@
             this.lbHora8.Location = new System.Drawing.Point(57, 124);
             this.lbHora8.Name = "lbHora8";
             this.lbHora8.Size = new System.Drawing.Size(37, 13);
-            this.lbHora8.TabIndex = 23;
+            this.lbHora8.TabIndex = 14;
             this.lbHora8.Text = "14h00";
             // 
             // BtnHora7
             // 
+            this.BtnHora7.BackColor = System.Drawing.Color.MintCream;
             this.BtnHora7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnHora7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnHora7.Location = new System.Drawing.Point(439, 51);
             this.BtnHora7.Name = "BtnHora7";
             this.BtnHora7.Size = new System.Drawing.Size(60, 60);
-            this.BtnHora7.TabIndex = 20;
-            this.BtnHora7.UseVisualStyleBackColor = true;
+            this.BtnHora7.TabIndex = 13;
+            this.BtnHora7.UseVisualStyleBackColor = false;
             this.BtnHora7.Click += new System.EventHandler(this.BtnHora7_Click);
             // 
             // lbHora7
@@ -358,18 +369,19 @@
             this.lbHora7.Location = new System.Drawing.Point(450, 36);
             this.lbHora7.Name = "lbHora7";
             this.lbHora7.Size = new System.Drawing.Size(37, 13);
-            this.lbHora7.TabIndex = 21;
+            this.lbHora7.TabIndex = 12;
             this.lbHora7.Text = "13h00";
             // 
             // BtnHora6
             // 
+            this.BtnHora6.BackColor = System.Drawing.Color.MintCream;
             this.BtnHora6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnHora6.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnHora6.Location = new System.Drawing.Point(373, 51);
             this.BtnHora6.Name = "BtnHora6";
             this.BtnHora6.Size = new System.Drawing.Size(60, 60);
-            this.BtnHora6.TabIndex = 18;
-            this.BtnHora6.UseVisualStyleBackColor = true;
+            this.BtnHora6.TabIndex = 11;
+            this.BtnHora6.UseVisualStyleBackColor = false;
             this.BtnHora6.Click += new System.EventHandler(this.BtnHora6_Click);
             // 
             // lbHora6
@@ -378,18 +390,19 @@
             this.lbHora6.Location = new System.Drawing.Point(384, 36);
             this.lbHora6.Name = "lbHora6";
             this.lbHora6.Size = new System.Drawing.Size(37, 13);
-            this.lbHora6.TabIndex = 19;
+            this.lbHora6.TabIndex = 10;
             this.lbHora6.Text = "12h00";
             // 
             // BtnHora5
             // 
+            this.BtnHora5.BackColor = System.Drawing.Color.MintCream;
             this.BtnHora5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnHora5.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnHora5.Location = new System.Drawing.Point(307, 51);
             this.BtnHora5.Name = "BtnHora5";
             this.BtnHora5.Size = new System.Drawing.Size(60, 60);
-            this.BtnHora5.TabIndex = 16;
-            this.BtnHora5.UseVisualStyleBackColor = true;
+            this.BtnHora5.TabIndex = 9;
+            this.BtnHora5.UseVisualStyleBackColor = false;
             this.BtnHora5.Click += new System.EventHandler(this.BtnHora5_Click);
             // 
             // lbHora5
@@ -398,18 +411,19 @@
             this.lbHora5.Location = new System.Drawing.Point(318, 36);
             this.lbHora5.Name = "lbHora5";
             this.lbHora5.Size = new System.Drawing.Size(37, 13);
-            this.lbHora5.TabIndex = 17;
+            this.lbHora5.TabIndex = 8;
             this.lbHora5.Text = "11h00";
             // 
             // BtnHora4
             // 
+            this.BtnHora4.BackColor = System.Drawing.Color.MintCream;
             this.BtnHora4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnHora4.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnHora4.Location = new System.Drawing.Point(242, 51);
             this.BtnHora4.Name = "BtnHora4";
             this.BtnHora4.Size = new System.Drawing.Size(60, 60);
-            this.BtnHora4.TabIndex = 14;
-            this.BtnHora4.UseVisualStyleBackColor = true;
+            this.BtnHora4.TabIndex = 7;
+            this.BtnHora4.UseVisualStyleBackColor = false;
             this.BtnHora4.Click += new System.EventHandler(this.BtnHora4_Click);
             // 
             // lbHora4
@@ -418,18 +432,19 @@
             this.lbHora4.Location = new System.Drawing.Point(253, 36);
             this.lbHora4.Name = "lbHora4";
             this.lbHora4.Size = new System.Drawing.Size(37, 13);
-            this.lbHora4.TabIndex = 15;
+            this.lbHora4.TabIndex = 6;
             this.lbHora4.Text = "10h00";
             // 
             // BtnHora3
             // 
+            this.BtnHora3.BackColor = System.Drawing.Color.MintCream;
             this.BtnHora3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnHora3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnHora3.Location = new System.Drawing.Point(176, 51);
             this.BtnHora3.Name = "BtnHora3";
             this.BtnHora3.Size = new System.Drawing.Size(60, 60);
-            this.BtnHora3.TabIndex = 12;
-            this.BtnHora3.UseVisualStyleBackColor = true;
+            this.BtnHora3.TabIndex = 5;
+            this.BtnHora3.UseVisualStyleBackColor = false;
             this.BtnHora3.Click += new System.EventHandler(this.BtnHora3_Click);
             // 
             // lbHora3
@@ -438,18 +453,19 @@
             this.lbHora3.Location = new System.Drawing.Point(187, 36);
             this.lbHora3.Name = "lbHora3";
             this.lbHora3.Size = new System.Drawing.Size(37, 13);
-            this.lbHora3.TabIndex = 13;
+            this.lbHora3.TabIndex = 4;
             this.lbHora3.Text = "09h00";
             // 
             // BtnHora2
             // 
+            this.BtnHora2.BackColor = System.Drawing.Color.MintCream;
             this.BtnHora2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnHora2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnHora2.Location = new System.Drawing.Point(110, 51);
             this.BtnHora2.Name = "BtnHora2";
             this.BtnHora2.Size = new System.Drawing.Size(60, 60);
-            this.BtnHora2.TabIndex = 10;
-            this.BtnHora2.UseVisualStyleBackColor = true;
+            this.BtnHora2.TabIndex = 3;
+            this.BtnHora2.UseVisualStyleBackColor = false;
             this.BtnHora2.Click += new System.EventHandler(this.BtnHora2_Click);
             // 
             // lbHora2
@@ -458,16 +474,20 @@
             this.lbHora2.Location = new System.Drawing.Point(121, 36);
             this.lbHora2.Name = "lbHora2";
             this.lbHora2.Size = new System.Drawing.Size(37, 13);
-            this.lbHora2.TabIndex = 11;
+            this.lbHora2.TabIndex = 2;
             this.lbHora2.Text = "08h00";
             // 
             // FrmAgenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(570, 373);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpConsultaAgendamentos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FrmAgenda";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ESPAÇO TP - AGENDA";

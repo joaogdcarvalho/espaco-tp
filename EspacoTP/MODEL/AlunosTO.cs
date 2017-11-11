@@ -12,7 +12,7 @@ namespace EspacoTP.MODEL
     {
         #region Attributes
 
-        private int? _idAluno;
+        private int _idAluno;
         private string _nome;
         private string _sobrenome;
         private string _cpf;
@@ -22,6 +22,7 @@ namespace EspacoTP.MODEL
         private string _email;
         private DateTime _dataInicioContrato;
         private DateTime _dataTerminoContrato;
+        private DateTime _dataTerminoContratoAnterior;
         private string _cep;
 
         private string _logradouro;
@@ -39,7 +40,7 @@ namespace EspacoTP.MODEL
         #region Properties
 
         [XmlElement(ElementName = "IdAluno")]
-        public int? IdAluno
+        public int IdAluno
         {
             get { return _idAluno; }
             set { _idAluno = value; }
@@ -99,6 +100,13 @@ namespace EspacoTP.MODEL
         {
             get { return _dataTerminoContrato; }
             set { _dataTerminoContrato = value; }
+        }
+
+        [XmlElement(ElementName = "DataTerminoContratoAnterior")]
+        public DateTime DataTerminoContratoAnterior
+        {
+            get { return _dataTerminoContratoAnterior; }
+            set { _dataTerminoContratoAnterior = value; }
         }
 
         [XmlElement(ElementName = "Cep")]

@@ -37,5 +37,9 @@ namespace EspacoTP
             FrmAgenda Age = new FrmAgenda();
             Age.Show();
         }
+
+        private void FrmPainel_Load(object sender, EventArgs e)
+        {            
+        }
     }
 }

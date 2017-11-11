@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAlunosConsulta));
             this.grpConsultaAlunos = new System.Windows.Forms.GroupBox();
             this.grpPeriodoContrato = new System.Windows.Forms.GroupBox();
             this.dtpDataTerminoContrato = new System.Windows.Forms.DateTimePicker();
@@ -131,7 +132,6 @@
             this.dtpDataInicioContrato.Name = "dtpDataInicioContrato";
             this.dtpDataInicioContrato.Size = new System.Drawing.Size(106, 20);
             this.dtpDataInicioContrato.TabIndex = 1;
-            this.dtpDataInicioContrato.Value = new System.DateTime(2017, 11, 7, 0, 0, 0, 0);
             // 
             // lbDataInicioContrato
             // 
@@ -144,7 +144,7 @@
             // 
             // pnlBotoesFiltro
             // 
-            this.pnlBotoesFiltro.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.pnlBotoesFiltro.BackColor = System.Drawing.Color.MintCream;
             this.pnlBotoesFiltro.Controls.Add(this.btnBuscar);
             this.pnlBotoesFiltro.Controls.Add(this.btnLimpar);
             this.pnlBotoesFiltro.Location = new System.Drawing.Point(304, 79);
@@ -250,7 +250,7 @@
             // 
             // pnlBotoes
             // 
-            this.pnlBotoes.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.pnlBotoes.BackColor = System.Drawing.Color.MintCream;
             this.pnlBotoes.Controls.Add(this.btnSelecionarAluno);
             this.pnlBotoes.Location = new System.Drawing.Point(12, 550);
             this.pnlBotoes.Name = "pnlBotoes";
@@ -437,10 +437,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(570, 607);
             this.Controls.Add(this.grdConsultaAlunos);
             this.Controls.Add(this.pnlBotoes);
             this.Controls.Add(this.grpConsultaAlunos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "FrmAlunosConsulta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ESPAÇO TP - CONSULTA ALUNOS";

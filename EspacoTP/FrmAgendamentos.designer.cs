@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAgendamentos));
             this.grpDetalhes = new System.Windows.Forms.GroupBox();
             this.txtCodigoAgendamento = new System.Windows.Forms.TextBox();
             this.btnBuscarAlunos = new System.Windows.Forms.Button();
@@ -51,11 +52,11 @@
             this.colNomeInstrutor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colAulaAgendada = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnHistorico = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnIncluir = new System.Windows.Forms.Button();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnDesfazer = new System.Windows.Forms.Button();
-            this.btnHistorico = new System.Windows.Forms.Button();
             this.grpDetalhes.SuspendLayout();
             this.grpTurma.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdTurma)).BeginInit();
@@ -78,8 +79,8 @@
             this.grpDetalhes.Controls.Add(this.dtpData);
             this.grpDetalhes.Location = new System.Drawing.Point(14, 268);
             this.grpDetalhes.Name = "grpDetalhes";
-            this.grpDetalhes.Size = new System.Drawing.Size(546, 134);
-            this.grpDetalhes.TabIndex = 0;
+            this.grpDetalhes.Size = new System.Drawing.Size(546, 78);
+            this.grpDetalhes.TabIndex = 2;
             this.grpDetalhes.TabStop = false;
             this.grpDetalhes.Text = "Detalhes Agendamento de Horários";
             // 
@@ -90,15 +91,16 @@
             this.txtCodigoAgendamento.MaxLength = 11;
             this.txtCodigoAgendamento.Name = "txtCodigoAgendamento";
             this.txtCodigoAgendamento.Size = new System.Drawing.Size(88, 20);
-            this.txtCodigoAgendamento.TabIndex = 17;
+            this.txtCodigoAgendamento.TabIndex = 11;
+            this.txtCodigoAgendamento.Visible = false;
             // 
             // btnBuscarAlunos
             // 
             this.btnBuscarAlunos.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnBuscarAlunos.Location = new System.Drawing.Point(129, 98);
+            this.btnBuscarAlunos.Location = new System.Drawing.Point(350, 39);
             this.btnBuscarAlunos.Name = "btnBuscarAlunos";
             this.btnBuscarAlunos.Size = new System.Drawing.Size(88, 23);
-            this.btnBuscarAlunos.TabIndex = 15;
+            this.btnBuscarAlunos.TabIndex = 8;
             this.btnBuscarAlunos.Text = "&Buscar Aluno";
             this.btnBuscarAlunos.UseVisualStyleBackColor = true;
             this.btnBuscarAlunos.Click += new System.EventHandler(this.btnBuscarAlunos_Click);
@@ -106,11 +108,11 @@
             // txtCodigoAluno
             // 
             this.txtCodigoAluno.Enabled = false;
-            this.txtCodigoAluno.Location = new System.Drawing.Point(21, 98);
+            this.txtCodigoAluno.Location = new System.Drawing.Point(251, 41);
             this.txtCodigoAluno.MaxLength = 11;
             this.txtCodigoAluno.Name = "txtCodigoAluno";
             this.txtCodigoAluno.Size = new System.Drawing.Size(88, 20);
-            this.txtCodigoAluno.TabIndex = 14;
+            this.txtCodigoAluno.TabIndex = 7;
             // 
             // lbCodigoAgendamento
             // 
@@ -119,85 +121,88 @@
             this.lbCodigoAgendamento.Location = new System.Drawing.Point(354, 77);
             this.lbCodigoAgendamento.Name = "lbCodigoAgendamento";
             this.lbCodigoAgendamento.Size = new System.Drawing.Size(109, 13);
-            this.lbCodigoAgendamento.TabIndex = 16;
+            this.lbCodigoAgendamento.TabIndex = 10;
             this.lbCodigoAgendamento.Text = "Código Agendamento";
+            this.lbCodigoAgendamento.Visible = false;
             // 
             // chkAtivo
             // 
             this.chkAtivo.AutoSize = true;
             this.chkAtivo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.chkAtivo.Location = new System.Drawing.Point(246, 98);
+            this.chkAtivo.Location = new System.Drawing.Point(476, 41);
             this.chkAtivo.Name = "chkAtivo";
             this.chkAtivo.Size = new System.Drawing.Size(50, 17);
-            this.chkAtivo.TabIndex = 13;
+            this.chkAtivo.TabIndex = 9;
             this.chkAtivo.Text = "Ativo";
             this.chkAtivo.UseVisualStyleBackColor = true;
             // 
             // lbHorario
             // 
             this.lbHorario.AutoSize = true;
-            this.lbHorario.Location = new System.Drawing.Point(142, 21);
+            this.lbHorario.Location = new System.Drawing.Point(141, 22);
             this.lbHorario.Name = "lbHorario";
             this.lbHorario.Size = new System.Drawing.Size(41, 13);
-            this.lbHorario.TabIndex = 11;
+            this.lbHorario.TabIndex = 2;
             this.lbHorario.Text = "Horário";
             // 
             // lbCodigo
             // 
             this.lbCodigo.AutoSize = true;
             this.lbCodigo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lbCodigo.Location = new System.Drawing.Point(18, 77);
+            this.lbCodigo.Location = new System.Drawing.Point(254, 22);
             this.lbCodigo.Name = "lbCodigo";
             this.lbCodigo.Size = new System.Drawing.Size(70, 13);
-            this.lbCodigo.TabIndex = 5;
+            this.lbCodigo.TabIndex = 6;
             this.lbCodigo.Text = "Código Aluno";
             // 
             // lbInstrutor
             // 
             this.lbInstrutor.AutoSize = true;
-            this.lbInstrutor.Location = new System.Drawing.Point(243, 21);
+            this.lbInstrutor.Location = new System.Drawing.Point(23, 77);
             this.lbInstrutor.Name = "lbInstrutor";
             this.lbInstrutor.Size = new System.Drawing.Size(45, 13);
             this.lbInstrutor.TabIndex = 4;
             this.lbInstrutor.Text = "Instrutor";
+            this.lbInstrutor.Visible = false;
             // 
             // cboInstrutor
             // 
             this.cboInstrutor.FormattingEnabled = true;
-            this.cboInstrutor.Location = new System.Drawing.Point(246, 40);
+            this.cboInstrutor.Location = new System.Drawing.Point(20, 95);
             this.cboInstrutor.MaxLength = 40;
             this.cboInstrutor.Name = "cboInstrutor";
             this.cboInstrutor.Size = new System.Drawing.Size(293, 21);
             this.cboInstrutor.TabIndex = 5;
+            this.cboInstrutor.Visible = false;
             // 
             // lbData
             // 
             this.lbData.AutoSize = true;
-            this.lbData.Location = new System.Drawing.Point(18, 21);
+            this.lbData.Location = new System.Drawing.Point(23, 22);
             this.lbData.Name = "lbData";
             this.lbData.Size = new System.Drawing.Size(30, 13);
-            this.lbData.TabIndex = 6;
+            this.lbData.TabIndex = 0;
             this.lbData.Text = "Data";
             // 
             // cboHorario
             // 
             this.cboHorario.Enabled = false;
             this.cboHorario.FormattingEnabled = true;
-            this.cboHorario.Location = new System.Drawing.Point(142, 41);
+            this.cboHorario.Location = new System.Drawing.Point(138, 41);
             this.cboHorario.MaxLength = 8;
             this.cboHorario.Name = "cboHorario";
-            this.cboHorario.Size = new System.Drawing.Size(63, 21);
-            this.cboHorario.TabIndex = 12;
+            this.cboHorario.Size = new System.Drawing.Size(88, 21);
+            this.cboHorario.TabIndex = 3;
             this.cboHorario.Text = "07:00";
             // 
             // dtpData
             // 
             this.dtpData.Enabled = false;
             this.dtpData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpData.Location = new System.Drawing.Point(18, 41);
+            this.dtpData.Location = new System.Drawing.Point(22, 41);
             this.dtpData.Name = "dtpData";
             this.dtpData.Size = new System.Drawing.Size(88, 20);
-            this.dtpData.TabIndex = 7;
+            this.dtpData.TabIndex = 1;
             this.dtpData.Value = new System.DateTime(2017, 10, 26, 0, 0, 0, 0);
             // 
             // grpTurma
@@ -206,7 +211,7 @@
             this.grpTurma.Location = new System.Drawing.Point(14, 12);
             this.grpTurma.Name = "grpTurma";
             this.grpTurma.Size = new System.Drawing.Size(546, 185);
-            this.grpTurma.TabIndex = 5;
+            this.grpTurma.TabIndex = 0;
             this.grpTurma.TabStop = false;
             this.grpTurma.Text = "Turma";
             // 
@@ -302,7 +307,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panel1.BackColor = System.Drawing.Color.MintCream;
             this.panel1.Controls.Add(this.btnHistorico);
             this.panel1.Controls.Add(this.btnAlterar);
             this.panel1.Controls.Add(this.btnIncluir);
@@ -311,7 +316,18 @@
             this.panel1.Location = new System.Drawing.Point(12, 208);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(546, 47);
-            this.panel1.TabIndex = 7;
+            this.panel1.TabIndex = 1;
+            // 
+            // btnHistorico
+            // 
+            this.btnHistorico.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnHistorico.Location = new System.Drawing.Point(173, 12);
+            this.btnHistorico.Name = "btnHistorico";
+            this.btnHistorico.Size = new System.Drawing.Size(75, 23);
+            this.btnHistorico.TabIndex = 2;
+            this.btnHistorico.Text = "&Histórico";
+            this.btnHistorico.UseVisualStyleBackColor = true;
+            this.btnHistorico.Visible = false;
             // 
             // btnAlterar
             // 
@@ -341,7 +357,7 @@
             this.btnSalvar.Location = new System.Drawing.Point(453, 12);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 23);
-            this.btnSalvar.TabIndex = 3;
+            this.btnSalvar.TabIndex = 4;
             this.btnSalvar.Text = "&Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
             this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
@@ -352,29 +368,22 @@
             this.btnDesfazer.Location = new System.Drawing.Point(372, 12);
             this.btnDesfazer.Name = "btnDesfazer";
             this.btnDesfazer.Size = new System.Drawing.Size(75, 23);
-            this.btnDesfazer.TabIndex = 2;
+            this.btnDesfazer.TabIndex = 3;
             this.btnDesfazer.Text = "&Desfazer";
             this.btnDesfazer.UseVisualStyleBackColor = true;
             this.btnDesfazer.Click += new System.EventHandler(this.btnDesfazer_Click);
-            // 
-            // btnHistorico
-            // 
-            this.btnHistorico.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnHistorico.Location = new System.Drawing.Point(173, 12);
-            this.btnHistorico.Name = "btnHistorico";
-            this.btnHistorico.Size = new System.Drawing.Size(75, 23);
-            this.btnHistorico.TabIndex = 8;
-            this.btnHistorico.Text = "&Histórico";
-            this.btnHistorico.UseVisualStyleBackColor = true;
             // 
             // FrmAgendamentos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(570, 406);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(570, 363);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.grpTurma);
             this.Controls.Add(this.grpDetalhes);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAgendamentos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ESPAÇO TP - AGENDAMENTOS";
